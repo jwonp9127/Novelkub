@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
-public class Player : MonoBehaviour
+public class TestPlayer : MonoBehaviour
 {
     public Rigidbody Rigidbody { get; private set; }
     public Collider Collider { get; private set; }
