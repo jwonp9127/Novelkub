@@ -6,6 +6,8 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
     public int questId;
+    public int questActionIndex;
+    // public GameObject[] questObject; 
 
     private Dictionary<int, QuestData> _questDate;
 
@@ -23,6 +25,31 @@ public class QuestManager : MonoBehaviour
 
     public int GetQuestDialogIndex(int id)
     {
-        return questId;
+        return questId + questActionIndex;
+    }
+
+    public string CheckQuest(int id)
+    {
+        if (id == _questDate[questId].NpcId[questActionIndex])
+        {
+            questActionIndex++;
+        }
+
+        if (questActionIndex == _questDate[questId].NpcId.Length)
+        {
+            NextQuest();
+        }
+        return _questDate[questId].QuestName;
+    }
+    
+    public string CheckQuest()
+    {
+        return _questDate[questId].QuestName;
+    }
+
+    public void NextQuest()
+    {
+        questId += 100;
+        questActionIndex = 0;
     }
 }

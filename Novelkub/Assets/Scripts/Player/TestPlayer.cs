@@ -50,15 +50,15 @@ public class TestPlayer : MonoBehaviour
         }
     }
 
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "NPC" || other.tag == "Evidence")
-        {
-            _nearObject = null;
-            if (interactionManager.isAction)
-            {
-                interactionManager.ExitDialog(out interactionManager.dialogIndex);
-            }
-        }
-    }
+    // public void OnTriggerExit(Collider other)
+    // {
+    //     if (other.tag == "NPC" || other.tag == "Evidence")
+    //     {
+    //         _nearObject = null;
+    //         if (interactionManager.isAction)
+    //         {
+    //             interactionManager.ExitDialog(out interactionManager.dialogIndex);
+    //         }
+    //     }
+    // }
 }
