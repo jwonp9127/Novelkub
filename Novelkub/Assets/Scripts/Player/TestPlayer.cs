@@ -6,11 +6,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
-public class Player : MonoBehaviour
+public class TestPlayer : MonoBehaviour
 {
     public Rigidbody Rigidbody { get; private set; }
     public Collider Collider { get; private set; }
-    public PlayerInput Input { get; private set; }
+    private PlayerInput Input { get; set; }
     public InteractionManager interactionManager;
 
     private GameObject _nearObject;
