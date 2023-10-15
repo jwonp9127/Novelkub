@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public Rigidbody Rigidbody { get; private set; }
     public Collider Collider { get; private set; }
     public PlayerInput Input { get; private set; }
-    public DialogManager dialogManager;
+    [FormerlySerializedAs("dialogManager")] public InteractionManager interactionManager;
 
     private GameObject _nearObject;
     private GameObject _pressKey;
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     {
         if (_nearObject != null)
         {
-            dialogManager.Interaction(_nearObject);
+            interactionManager.Interaction(_nearObject);
             Debug.Log("NPC 상호작용");
         }
     }
@@ -50,10 +50,10 @@ public class Player : MonoBehaviour
         if (other.tag == "NPC")
         {
             _nearObject = null;
-            if (dialogManager.isAction)
+            if (interactionManager.isAction)
             {
-                dialogManager.isAction = false;
-                dialogManager.dialogUI.SetActive(false);
+                interactionManager.isAction = false;
+                interactionManager.dialogUI.SetActive(false);
             }
         }
     }
