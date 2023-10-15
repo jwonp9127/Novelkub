@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public Rigidbody Rigidbody { get; private set; }
     public Collider Collider { get; private set; }
     public PlayerInput Input { get; private set; }
-    [FormerlySerializedAs("dialogManager")] public InteractionManager interactionManager;
+    public InteractionManager interactionManager;
 
     private GameObject _nearObject;
     private GameObject _pressKey;
@@ -43,17 +43,21 @@ public class Player : MonoBehaviour
             _nearObject = other.gameObject;
             Debug.Log("NPC 충돌");
         }
+        else if (other.tag == "Evidence")
+        {
+            _nearObject = other.gameObject;
+            Debug.Log("Evidence 충돌");
+        }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.tag == "NPC")
+        if (other.tag == "NPC" || other.tag == "Evidence")
         {
             _nearObject = null;
             if (interactionManager.isAction)
             {
-                interactionManager.isAction = false;
-                interactionManager.dialogUI.SetActive(false);
+                interactionManager.ExitDialog(out interactionManager.dialogIndex);
             }
         }
     }

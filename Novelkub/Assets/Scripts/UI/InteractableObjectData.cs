@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-enum ObjectData
+public enum ObjectData
 {
     NPC1 = 1000,
     NPC2 = 2000,
@@ -18,7 +18,7 @@ enum ObjectData
     Evidence4 = 14000,
     Evidence5 = 15000
 }
-public class InteractiveObjectData : MonoBehaviour
+public class InteractableObjectData : MonoBehaviour
 {
     public int objectId;
     public bool isNPC;
