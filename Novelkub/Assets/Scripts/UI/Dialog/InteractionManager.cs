@@ -45,7 +45,7 @@ public class InteractionManager : MonoBehaviour
         if (dialogData == null)
         {
             QuestManager.CheckQuest(objectId);
-            ExitDialog(objectId, out dialogIndex);
+            ExitDialog(out dialogIndex);
             Debug.Log(QuestManager.CheckQuest(objectId));
             return;
         }
@@ -68,7 +68,7 @@ public class InteractionManager : MonoBehaviour
         dialogUI.SetActive(true);
     }
 
-    public void ExitDialog(int id, out int index)
+    public void ExitDialog(out int index)
     {
         isAction = false;
         dialogUI.SetActive(false);
