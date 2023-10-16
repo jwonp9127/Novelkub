@@ -24,6 +24,11 @@ public class InteractionManager : MonoBehaviour
         QuestManager = GetComponent<QuestManager>();
     }
 
+    private void Start()
+    {
+        Debug.Log(QuestManager.CheckQuest());
+    }
+
     public void Interaction(GameObject obj)
     {
         scanObject = obj;
@@ -39,7 +44,9 @@ public class InteractionManager : MonoBehaviour
 
         if (dialogData == null)
         {
+            QuestManager.CheckQuest(objectId);
             ExitDialog(out dialogIndex);
+            Debug.Log(QuestManager.CheckQuest(objectId));
             return;
         }
         
@@ -51,11 +58,11 @@ public class InteractionManager : MonoBehaviour
         {
             dialogText.text = dialogData;
         }
-        EnterDialog();
+        OnDialog();
         dialogIndex++;
     }
 
-    public void EnterDialog()
+    public void OnDialog()
     {
         isAction = true;
         dialogUI.SetActive(true);

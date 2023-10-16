@@ -26,11 +26,12 @@ public class DialogManager : MonoBehaviour
 
     private void GenerateQuestDialogData()
     {
+        //해당 obj + quest + order
         _dialogData.Add((int)ObjectNum.NPC1 + (int)QuestNum.First,
                         new string[] { "어서 와.",              
                                        "이건 첫 번째 퀘스트야.",
                                        "두 번째 NPC에게 말을 걸어봐."});
-        _dialogData.Add((int)ObjectNum.NPC2 + (int)QuestNum.First,
+        _dialogData.Add((int)ObjectNum.NPC2 + (int)QuestNum.First + 1,
                         new string[] { "왔어?.",              
                                        "맞아, 이건 첫 번째 퀘스트야.",
                                        "첫 번째 퀘스트가 끝이 났어."});
@@ -38,10 +39,25 @@ public class DialogManager : MonoBehaviour
 
     public string GetDialog(int objectId, int dialogIndex)
     {
-        if (dialogIndex >= _dialogData[objectId].Length)
+        if (!_dialogData.ContainsKey(objectId))
+        {
+            if (!_dialogData.ContainsKey(objectId - objectId % 100))
+            {
+                return GetDialog(objectId - objectId % 1000, dialogIndex);
+            }
+            else
+            {
+                return GetDialog(objectId - objectId % 100, dialogIndex);
+            }
+        }
+
+        if (dialogIndex == _dialogData[objectId].Length)
         {
             return null;
         }
-        return _dialogData[objectId][dialogIndex];
+        else
+        {
+            return _dialogData[objectId][dialogIndex];
+        }
     }
 }
