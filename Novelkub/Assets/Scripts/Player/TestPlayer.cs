@@ -25,6 +25,7 @@ public class TestPlayer : MonoBehaviour
     private void Start()
     {
         Input.PlayerActions.Interaction.started += OnInteractionStarted;
+        Input.PlayerActions.Cancel.started += OnCancelStarted;
     }
     
     private void OnInteractionStarted(InputAction.CallbackContext context)
@@ -33,6 +34,14 @@ public class TestPlayer : MonoBehaviour
         {
             interactionManager.Interaction(_nearObject);
             Debug.Log("NPC 상호작용");
+        }
+    }
+
+    private void OnCancelStarted(InputAction.CallbackContext context)
+    {
+        if (interactionManager.isAction)
+        {
+            interactionManager.ExitDialog(out interactionManager.dialogIndex);
         }
     }
 
