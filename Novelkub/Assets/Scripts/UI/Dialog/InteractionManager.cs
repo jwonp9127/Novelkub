@@ -11,13 +11,22 @@ public class InteractionManager : MonoBehaviour
 {
     public DialogManager DialogManager { get; private set; }
     public QuestManager QuestManager { get; private set; }
+    
+    [Header("DialogUI")]
     public GameObject dialogUI;
     public TMP_Text objectName;
     public TMP_Text dialogText;
+
+    [Header("QuestInfoUI")]
+    public GameObject questInfoUI;
+    public TMP_Text questNameText;
+    public TMP_Text questInfoText;
+    
+    [Header("Etc")]
     public GameObject scanObject;
     public bool isAction;
     public int dialogIndex;
-
+    
     private void Awake()
     {
         DialogManager = GetComponent<DialogManager>();
@@ -27,6 +36,9 @@ public class InteractionManager : MonoBehaviour
     private void Start()
     {
         Debug.Log(QuestManager.CheckQuest());
+        questInfoUI.SetActive(true);
+        dialogUI.SetActive(false);
+        ShowQuestInfo("", "");
     }
 
     public void Interaction(GameObject obj)
@@ -44,6 +56,7 @@ public class InteractionManager : MonoBehaviour
 
         if (dialogData == null)
         {
+            ShowQuestInfo(DialogManager.questName, DialogManager.questInfo);
             QuestManager.CheckQuest(objectId);
             ExitDialog(out dialogIndex);
             Debug.Log(QuestManager.CheckQuest(objectId));
@@ -73,5 +86,11 @@ public class InteractionManager : MonoBehaviour
         isAction = false;
         dialogUI.SetActive(false);
         index = 0;
+    }
+
+    public void ShowQuestInfo(string qName, string qInfo)
+    {
+        questNameText.text = qName;
+        questInfoText.text = qInfo;
     }
 }

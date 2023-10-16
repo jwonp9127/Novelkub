@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class QuestManager : MonoBehaviour
 {
     public int questId;
     public int questActionIndex;
+
     // public GameObject[] questObject; 
 
     private Dictionary<int, QuestData> _questDate;
@@ -36,7 +38,6 @@ public class QuestManager : MonoBehaviour
         {
             questActionIndex++;
         }
-
         if (questActionIndex == _questDate[questId].NpcId.Length)
         {
             NextQuest();
