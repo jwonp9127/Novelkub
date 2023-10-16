@@ -21,6 +21,8 @@ public class QuestManager : MonoBehaviour
     {
         _questDate.Add((int)QuestNum.First,
                         new QuestData("모험의 시작", new int[]{(int)ObjectNum.NPC1, (int)ObjectNum.NPC2}));
+        _questDate.Add((int)QuestNum.Second,
+            new QuestData("끝났당", new int[]{0}));
     }
 
     public int GetQuestDialogIndex(int id)
