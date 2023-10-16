@@ -31,7 +31,7 @@ public class PlayerGroundedState : PlayerBaseState
         base.PhysicsUpdate();
     }
 
-    /*
+    
     protected override void OnMovementCanceled(InputAction.CallbackContext context)
     {
         if (stateMachine.MovementInput == Vector2.zero)
@@ -48,6 +48,6 @@ public class PlayerGroundedState : PlayerBaseState
     {
         stateMachine.ChangeState(stateMachine.WalkState);
     }
-    */
+    
 
 }
