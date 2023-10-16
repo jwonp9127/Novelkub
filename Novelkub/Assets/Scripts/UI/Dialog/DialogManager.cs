@@ -5,11 +5,15 @@ using UnityEngine;
 
 public class DialogManager : MonoBehaviour
 {
+    private QuestManager _questManager;
     private Dictionary<int, string[]> _dialogData;
     private ObjectNum _objectNum;
+    public string questName { get; private set; }
+    public string questInfo { get; private set; }
 
     private void Awake()
     {
+        _questManager = GetComponent<QuestManager>();
         _dialogData = new Dictionary<int, string[]>();
         GenerateDialogData();
         GenerateQuestDialogData();
@@ -30,11 +34,11 @@ public class DialogManager : MonoBehaviour
         _dialogData.Add((int)ObjectNum.NPC1 + (int)QuestNum.First,
                         new string[] { "어서 와.",              
                                        "이건 첫 번째 퀘스트야.",
-                                       "두 번째 NPC에게 말을 걸어봐."});
+                                       "두 번째 NPC에게 말을 걸어봐.:두 번째 NPC에게 말을 걸어보자"});
         _dialogData.Add((int)ObjectNum.NPC2 + (int)QuestNum.First + 1,
                         new string[] { "왔어?.",              
                                        "맞아, 이건 첫 번째 퀘스트야.",
-                                       "첫 번째 퀘스트가 끝이 났어."});
+                                       "첫 번째 퀘스트가 끝이 났어.: "});
     }
 
     public string GetDialog(int objectId, int dialogIndex)
@@ -51,6 +55,12 @@ public class DialogManager : MonoBehaviour
             }
         }
 
+        if (dialogIndex == _dialogData[objectId].Length - 1)
+        {
+            questName = _questManager.CheckQuest();
+            questInfo = _dialogData[objectId][dialogIndex].Split(':')[1];
+            return _dialogData[objectId][dialogIndex].Split(':')[0];
+        }
         if (dialogIndex == _dialogData[objectId].Length)
         {
             return null;
