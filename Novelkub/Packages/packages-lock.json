@@ -22,7 +22,9 @@
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.2.1"
-=======
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.cinemachine": {
       "version": "2.9.7",
       "depth": 0,
