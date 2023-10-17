@@ -18,7 +18,6 @@ public class Police : MonoBehaviour
 
 
     [Header("Stats")]
-    public int health;
     public float walkSpeed;
     public float runSpeed;
 
@@ -69,7 +68,7 @@ public class Police : MonoBehaviour
     {
 
 
-        // 시아각 해결 문제 없음 본체랑 꼬리랑 꺼꾸로 되있었다.  Debug.Log(IsPlaterInFireldOfView());
+        
         playerDistance = Vector3.Distance(transform.position, player.transform.position); //플레이어와 자신사이의 거리
         // 여기는 문젱없음 Debug.Log(playerDistance);
         animator.SetBool("Moving", aiState != AIState.Idle);//가만히 있는것이 아니면 움직이기
@@ -104,6 +103,7 @@ public class Police : MonoBehaviour
             NavMeshPath path = new NavMeshPath();
             if (agent.CalculatePath(player.transform.position, path)) //경로를 새로검색한다.
             {
+                Debug.Log("플레이어 찾기");
                 agent.SetDestination(player.transform.position); //목적기를 찾기
             }
             else
@@ -118,43 +118,16 @@ public class Police : MonoBehaviour
             if (Time.time - lastAttackTime > attackRate)
             {
                 animator.SetTrigger("Attack");
-                // int AttackType = Random.Range(1, 5);
-                // Debug.Log(AttackType);
+
 
                 lastAttackTime = Time.time;
-                // Player.health -= 10;//여기부분 스태틱으로 하기
-                // Debug.Log("체력 : " + Player.health);
-                // PlayerController.instance.GetComponent<IDamagable>().TakePhysicalDamage(damage);
+
                 animator.speed = 1;
                 fieldOfView = 60f;
-                //if (AttackType == 1)
-                //{
-                //    collider.enabled = true;
-                //    attackRate = 3;
-                //    animator.SetTrigger("Attack");
-                //}
 
-                //else if (AttackType == 2)
-                //{
-                //    attackRate = 5;
-                //    collider.enabled = true;
-                //    animator.SetTrigger("ClawAttack");
-                //}
-                //else if (AttackType == 3)
-                //{
-                //    attackRate = 8;
-
-                //    animator.SetTrigger("Fiy");
-                //}
-                //else if (AttackType == 4)
-                //{
-                //    attackRate = 6;
-                //    animator.SetTrigger("Call");
-                //    Invoke("CallBabyDragon", 4);
-
-                //}
                 fieldOfView = 120f;
             }
+            SetState(AIState.Wandering);
         }
     }
 
@@ -171,7 +144,8 @@ public class Police : MonoBehaviour
 
         if (playerDistance < detectDistance)  //거리안에 들오았다면
         {
-
+            Debug.Log(playerDistance);
+            Debug.Log(detectDistance);
             SetState(AIState.Attacking);
         }
     }
@@ -183,7 +157,7 @@ public class Police : MonoBehaviour
         return angle < fieldOfView * 0.5f;
     }
 
-    private void SetState(AIState newState) //곰돌이 상태에 따라 변화 구하기
+    private void SetState(AIState newState) //상태에 따라 변화 구하기
     {
         aiState = newState;
         switch (aiState)
@@ -277,63 +251,18 @@ public class Police : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            health -= 2;
-            Debug.Log("몬스터 체력 : " + health);
-            StartCoroutine(DamageFlash());
-            //  Invoke("HideHPBar", 4);
-            // playerConditions.health.curValue -= 10f;
-            //Player.health -= 10;
-            // Debug.Log("일반스킬로의 체력" + playerConditions.health.curValue);
-        }
-        if (other.tag == "Melee")
-        {
-            Debug.Log("나 닿았엉");
-            //  Invoke("HideHPBar", 4);
-            //  Weapon weapon = other.GetComponent<Weapon>();
-            health -= 2;
-            Debug.Log("몬스터 체력 : " + health);
-            StartCoroutine(DamageFlash());
-        }
-
-        if (other.tag == "Bullet")
-        {
-            //Bullet bullet = other.GetComponent<Bullet>();
-            //health -= bullet.damage;
-            //  Debug.Log("몬스터 체력 : " + health);
-        }
-        if (health <= 0)
-        {
-            attackRate = 20;
-            //   openReword.Open();
-
-            StartCoroutine(DieAni());
-
-            // animator.SetTrigger("Die");
-            // Invoke("Die", 7);
-            //Invoke("Respwan",4);
-            // Die();
-            // DropItem();
-
+            Debug.Log("플레이어와 닿았다. 플레이어를 이동시키는 메서드를 만들어야 한다.");
+           
+           
         }
 
     }
-    //public void TakePhysicalDamage(int damageAmount)
-    //{
-    //    health -= damageAmount;
-    //    if (health <= 0)
-    //        Die();
 
-    //    StartCoroutine(DamageFlash());
-    //}
 
     void Die()
     {
-        //for (int x = 0; x < dropOnDeath.Length; x++)
-        //{
-        //    Instantiate(dropOnDeath[x].dropPrefab, transform.position + Vector3.up * 2, Quaternion.identity);
-        //}
+
         Destroy(gameObject);
-        //Invoke("Destroy(gameObject)", 8);
     }
 
     IEnumerator DamageFlash() //깜빡이는 것임.
@@ -358,21 +287,6 @@ public class Police : MonoBehaviour
     }
 
 
-    //public void DropItem()
-    //{
-    //    for (int i = 0; i < dropItem.Count; i++)
-    //    {
-    //        //itemPosition = mySelf.transform.position + new Vector3(0, 5, 0);
-    //        //dropItem.Count;
-    //        int num = Random.Range(0, dropItem.Count);
-    //        GameObject go = Instantiate(dropItem[num], mySelf.transform.position, Quaternion.identity);
-    //        go.transform.localScale = new Vector3(7, 7, 7);
-    //        //Debug.Log(go.transform.localScale);
-    //        go.GetComponent<Rigidbody>().AddForce(transform.up * 5, ForceMode.Impulse);
-
-
-    //    }
-    //}
 
 
 
