@@ -29,11 +29,27 @@ public class QuestManager : MonoBehaviour
     private void GenerateData()
     {
         _questDate.Add((int)QuestNum.First,
-            new QuestData("모험의 시작", new string[] { "NPC2를 찾아가세요.", "다음 퀘스트를 진행해주세요." },
-                new int[] { (int)ObjectNum.NPC1, (int)ObjectNum.NPC2 }));
+            new QuestData("탐정의 등장", new string[] { "밥 경관과의 대화를 통해 상황파악 하기" },
+                new int[] { (int)ObjectNum.NPC1 }));
         _questDate.Add((int)QuestNum.Second,
-            new QuestData("끝났당", new string[] { "" }, new int[] { 0 }));
-    }
+            new QuestData("첫 번째 실마리", new string[] { "중식당의 사장님과 대화하기" },
+                new int[] { (int)ObjectNum.NPC2 }));
+		_questDate.Add((int)QuestNum.Third,
+			new QuestData("지켜보고있다", new string[] { "펍에 가서 CCTV 확인해보기" , "건물주 할아버지를 통해 CCTV 확인하기" },
+				new int[] { (int)ObjectNum.Evidence1, (int)ObjectNum.NPC3 }));
+		_questDate.Add((int)QuestNum.Forth,
+			new QuestData("수상한 그림자", new string[] { "피자가게 직원과 대화하기" },
+				new int[] { (int)ObjectNum.NPC4 }));
+		_questDate.Add((int)QuestNum.Fifth,
+			new QuestData("드러난 마약", new string[] { "피자가게 직원이 얘기한 노숙자를 찾아 대화하기" },
+				new int[] { (int)ObjectNum.NPC5 }));
+		_questDate.Add((int)QuestNum.Sixth,
+			new QuestData("가려진 배후", new string[] { "펍으로 들어가 바텐더와 대화하기" },
+				new int[] { (int)ObjectNum.NPC6  }));
+		_questDate.Add((int)QuestNum.Seventh,
+			new QuestData("진실은 오직 하나!", new string[] { "죽은 남자의 부인을 추궁해 검거하기" },
+				new int[] { (int)ObjectNum.NPC7 }));
+	}
 
     public int GetQuestDialogIndex(int id)
     {
