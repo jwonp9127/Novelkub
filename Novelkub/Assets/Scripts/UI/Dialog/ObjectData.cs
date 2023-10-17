@@ -11,8 +11,11 @@ public enum ObjectNum
     NPC4 = 4000,
     NPC5 = 5000,
     NPC6 = 6000,
-    
-    Evidence1 = 11000,
+    NPC7 = 7000, 
+    NPC8 = 8000,
+	NPC9 = 9000,
+
+	Evidence1 = 11000,
     Evidence2 = 12000,
     Evidence3 = 13000,
     Evidence4 = 14000,

@@ -6,7 +6,11 @@ public enum QuestNum
 {
     First = 100,
     Second = 200,
-    Third = 300
+    Third = 300,
+    Forth = 400,
+    Fifth = 500,
+    Sixth = 600,
+    Seventh = 700
 }
 public class QuestData
 {
