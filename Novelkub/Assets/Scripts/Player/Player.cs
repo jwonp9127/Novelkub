@@ -1,60 +1,48 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour
 {
-    public Rigidbody Rigidbody { get; private set; }
-    public Collider Collider { get; private set; }
-    public PlayerInput Input { get; private set; }
-    [FormerlySerializedAs("dialogManager")] public InteractionManager interactionManager;
+    [field: Header("References")]
+    [field: SerializeField] public PlayerSO Data { get; private set; }
 
-    private GameObject _nearObject;
-    private GameObject _pressKey;
+    [field: Header("Animations")]
+    [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
+
+    public Rigidbody Rigidbody { get; private set; }
+    public Animator Animator { get; private set; }
+    public PlayerInput Input { get; private set; }
+    public CharacterController Controller { get; private set; }
+
+    private PlayerStateMachine stateMachine;
+
     private void Awake()
     {
+        AnimationData.Initialize();
+
         Rigidbody = GetComponent<Rigidbody>();
-        Collider = GetComponent<Collider>();
+        Animator = GetComponentInChildren<Animator>();
         Input = GetComponent<PlayerInput>();
+        Controller = GetComponent<CharacterController>();
+
+        stateMachine = new PlayerStateMachine(this);
     }
 
     private void Start()
     {
-        Input.PlayerActions.Interaction.started += OnInteractionStarted;
+        Cursor.lockState = CursorLockMode.Locked;
+        stateMachine.ChangeState(stateMachine.IdleState);
     }
-    
-    private void OnInteractionStarted(InputAction.CallbackContext context)
+    private void Update()
     {
-        if (_nearObject != null)
-        {
-            interactionManager.Interaction(_nearObject);
-            Debug.Log("NPC 상호작용");
-        }
+        stateMachine.HandleInput();
+        stateMachine.Update();
     }
 
-    public void OnTriggerEnter(Collider other)
+    private void FixedUpdate()
     {
-        if (other.tag == "NPC")
-        {
-            _nearObject = other.gameObject;
-            Debug.Log("NPC 충돌");
-        }
+        stateMachine.PhysicsUpdate();
     }
 
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "NPC")
-        {
-            _nearObject = null;
-            if (interactionManager.isAction)
-            {
-                interactionManager.isAction = false;
-                interactionManager.dialogUI.SetActive(false);
-            }
-        }
-    }
 }
