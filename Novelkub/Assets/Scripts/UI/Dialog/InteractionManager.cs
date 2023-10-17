@@ -14,10 +14,11 @@ public class InteractionManager : MonoBehaviour
     
     [Header("DialogUI")]
     public GameObject dialogUI;
-    public TMP_Text objectName;
+	public GameObject nameUI;
+	public TMP_Text objectName;
     public TMP_Text dialogText;
 
-    [Header("QuestInfoUI")]
+	[Header("QuestInfoUI")]
     public GameObject questInfoUI;
     public TMP_Text questNameText;
     public TMP_Text questInfoText;
@@ -66,11 +67,15 @@ public class InteractionManager : MonoBehaviour
         if (isNPC)
         {
             dialogText.text = dialogData;
+
+            nameUI.SetActive(true);
         }
         else
         {
             dialogText.text = dialogData;
-        }
+
+			nameUI.SetActive(false);
+		}
         OnDialog();
         dialogIndex++;
     }
