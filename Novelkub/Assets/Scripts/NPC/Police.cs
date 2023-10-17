@@ -14,7 +14,7 @@ public class Police : MonoBehaviour
     }
    
     public Player player;
-    public GameObject BossNpc;
+    public Transform spwamPosition;
 
 
     [Header("Stats")]
@@ -103,7 +103,7 @@ public class Police : MonoBehaviour
             NavMeshPath path = new NavMeshPath();
             if (agent.CalculatePath(player.transform.position, path)) //경로를 새로검색한다.
             {
-                Debug.Log("플레이어 찾기");
+                
                 agent.SetDestination(player.transform.position); //목적기를 찾기
             }
             else
@@ -144,8 +144,6 @@ public class Police : MonoBehaviour
 
         if (playerDistance < detectDistance)  //거리안에 들오았다면
         {
-            Debug.Log(playerDistance);
-            Debug.Log(detectDistance);
             SetState(AIState.Attacking);
         }
     }
@@ -251,9 +249,14 @@ public class Police : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("플레이어와 닿았다. 플레이어를 이동시키는 메서드를 만들어야 한다.");
-           
-           
+            Debug.Log(other.transform.position);
+            // Debug.Log("플레이어와 닿았다. 플레이어를 이동시키는 메서드를 만들어야 한다.");
+            //other.GetComponent<Transform>().position = spwamPosition.transform.position;
+             other.transform.position = spwamPosition.position;
+            Debug.Log(other.transform.position);
+            //other.gameObject.transform.position = spwamPosition.transform.position;
+            // Debug.Log(other.transform.position);
+            // Debug.Log(spwamPosition.transform.position);
         }
 
     }
@@ -282,7 +285,7 @@ public class Police : MonoBehaviour
         //animator.SetBool("Die", true);
         yield return new WaitForSeconds(8f);
         // DropItem();
-        BossNpc.SetActive(true);
+        //BossNpc.SetActive(true);
         Destroy(gameObject);
     }
 
