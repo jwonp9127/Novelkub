@@ -260,6 +260,20 @@ public class Police : MonoBehaviour
         }
 
     }
+    //void OnControllerColliderHit(ControllerColliderHit hit)
+    //{
+    //    if (hit.collider.CompareTag("Player"))
+    //    {
+    //        //Debug.Log(hit.collider.tag.transform.position);
+    //        // Debug.Log("플레이어와 닿았다. 플레이어를 이동시키는 메서드를 만들어야 한다.");
+    //        //other.GetComponent<Transform>().position = spwamPosition.transform.position;
+    //        hit.collider.transform.position = spwamPosition.position;
+    //        //Debug.Log(collider.transform.position);
+    //        //other.gameObject.transform.position = spwamPosition.transform.position;
+    //        // Debug.Log(other.transform.position);
+    //        // Debug.Log(spwamPosition.transform.position);
+    //    }
+    //}
 
 
     void Die()
