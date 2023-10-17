@@ -44,6 +44,7 @@ public class Nosook : MonoBehaviour
             if (transform.position == NosookPosition.position)
             {
                 animator.SetBool("Idle", true);
+                SpwanManager.Instance.OnMayac();
             }
         }
     }
