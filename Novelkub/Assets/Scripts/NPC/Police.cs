@@ -245,15 +245,15 @@ public class Police : MonoBehaviour
 
 
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider collider)
     {
-        if (other.tag == "Player")
+        if (collider.tag == "Player")
         {
-            Debug.Log(other.transform.position);
+            Debug.Log(collider.transform.position);
             // Debug.Log("플레이어와 닿았다. 플레이어를 이동시키는 메서드를 만들어야 한다.");
             //other.GetComponent<Transform>().position = spwamPosition.transform.position;
-             other.transform.position = spwamPosition.position;
-            Debug.Log(other.transform.position);
+            collider.transform.position = spwamPosition.position;
+            Debug.Log(collider.transform.position);
             //other.gameObject.transform.position = spwamPosition.transform.position;
             // Debug.Log(other.transform.position);
             // Debug.Log(spwamPosition.transform.position);
