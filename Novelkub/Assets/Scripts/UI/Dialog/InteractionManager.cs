@@ -39,7 +39,7 @@ public class InteractionManager : MonoBehaviour
         Debug.Log(QuestManager.CheckQuest());
         questInfoUI.SetActive(true);
         dialogUI.SetActive(false);
-        ShowQuestInfo("", "");
+        ShowQuestInfo("모험의 시작", "경찰에게 찾아가세요.");
     }
 
     public void Interaction(GameObject obj)
@@ -57,8 +57,8 @@ public class InteractionManager : MonoBehaviour
 
         if (dialogData == null)
         {
-            ShowQuestInfo(DialogManager.questName, DialogManager.questInfo);
             QuestManager.CheckQuest(objectId);
+            ShowQuestInfo(QuestManager.QuestName, QuestManager.QuestInfo);
             ExitDialog(out dialogIndex);
             Debug.Log(QuestManager.CheckQuest(objectId));
             return;
