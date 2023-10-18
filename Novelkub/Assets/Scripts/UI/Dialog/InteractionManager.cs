@@ -1,11 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 public class InteractionManager : MonoBehaviour
 {
@@ -15,7 +9,7 @@ public class InteractionManager : MonoBehaviour
     [Header("DialogUI")]
     public GameObject dialogUI;
 	public GameObject nameUI;
-	public TMP_Text objectName;
+	public TMP_Text dialogName;
     public TMP_Text dialogText;
 
 	[Header("QuestInfoUI")]
@@ -25,6 +19,7 @@ public class InteractionManager : MonoBehaviour
     
     [Header("Etc")]
     public GameObject scanObject;
+    public string dialogObject;
     public bool isAction;
     public int dialogIndex;
     
@@ -39,28 +34,26 @@ public class InteractionManager : MonoBehaviour
         Debug.Log(QuestManager.CheckQuest());
         questInfoUI.SetActive(true);
         dialogUI.SetActive(false);
-        ShowQuestInfo("모험의 시작", "경찰에게 찾아가세요.");
+        ShowQuestInfo("탐정의 등장", "밥 경관과의 대화를 통해 상황파악 하기");
     }
 
     public void Interaction(GameObject obj)
     {
         scanObject = obj;
-        objectName.text = scanObject.name;
         ObjectData scanObjectData = scanObject.GetComponent<ObjectData>();
         Dialog(scanObjectData.objectId, scanObjectData.isNPC);
     }
 
-    public void Dialog(int objectId, bool isNPC)
+    private void Dialog(int objectId, bool isNPC)
     {
-        int questDialogIndex = QuestManager.GetQuestDialogIndex(objectId);
-        string dialogData = DialogManager.GetDialog(objectId + questDialogIndex, dialogIndex);
+        int questDialogIndex = QuestManager.GetQuestDialogIndex();
+        string dialogData = DialogManager.GetDialog(objectId + questDialogIndex, dialogIndex, out dialogObject);
 
         if (dialogData == null)
         {
             QuestManager.CheckQuest(objectId);
             ShowQuestInfo(QuestManager.QuestName, QuestManager.QuestInfo);
             ExitDialog(out dialogIndex);
-            Debug.Log(QuestManager.CheckQuest(objectId));
             return;
         }
         
@@ -80,10 +73,11 @@ public class InteractionManager : MonoBehaviour
         dialogIndex++;
     }
 
-    public void OnDialog()
+    private void OnDialog()
     {
         isAction = true;
         dialogUI.SetActive(true);
+        ShowDialogName(dialogObject);
     }
 
     public void ExitDialog(out int index)
@@ -93,9 +87,22 @@ public class InteractionManager : MonoBehaviour
         index = 0;
     }
 
-    public void ShowQuestInfo(string qName, string qInfo)
+    private void ShowQuestInfo(string qName, string qInfo)
     {
         questNameText.text = qName;
         questInfoText.text = qInfo;
+    }
+
+    private void ShowDialogName(string dName)
+    {
+        if (dName == "player")
+        {
+            nameUI.SetActive(false);
+        }
+        else
+        {
+            nameUI.SetActive(true);
+        }
+        dialogName.text = dName;
     }
 }
