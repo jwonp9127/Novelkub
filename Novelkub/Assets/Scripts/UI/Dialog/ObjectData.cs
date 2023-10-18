@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public enum ObjectNum
 {
@@ -15,7 +12,7 @@ public enum ObjectNum
     NPC8 = 8000,
 	NPC9 = 9000,
 
-	Evidence1 = 11000,
+	Object1 = 11000,
     Evidence2 = 12000,
     Evidence3 = 13000,
     Evidence4 = 14000,

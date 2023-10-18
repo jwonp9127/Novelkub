@@ -1,6 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class DialogManager : MonoBehaviour
@@ -19,19 +18,19 @@ public class DialogManager : MonoBehaviour
 
     private void GenerateDialogData()
     {
-        _dialogData.Add((int)ObjectNum.NPC1, new string[]{"탐정님 정말 반갑습니다!"});
-        _dialogData.Add((int)ObjectNum.NPC2, new string[]{"탐정양반! 일자리가 필요하다면 언제나 오게나!"});
-		_dialogData.Add((int)ObjectNum.NPC3, new string[]{"우리 동네에 살인사건이라니..에잉 쯧쯧"});
-		_dialogData.Add((int)ObjectNum.NPC4, new string[]{"손님들이 그만 좀 왔으면 좋겠네요"});
-		_dialogData.Add((int)ObjectNum.NPC5, new string[]{"이..이제 해..행복할 수 있어!" });
-		_dialogData.Add((int)ObjectNum.NPC6, new string[]{"쓰디쓴 술엔 달콤한 사탕이 어울리죠" });
-		_dialogData.Add((int)ObjectNum.NPC7, new string[]{"뭘 보죠?" });
-		_dialogData.Add((int)ObjectNum.Evidence1, new string[]{"펍으로 가는 입구다."});
+        _dialogData.Add((int)ObjectNum.NPC1, new string[]{"탐정님 정말 반갑습니다!:1"});
+        _dialogData.Add((int)ObjectNum.NPC2, new string[]{"탐정양반! 일자리가 필요하다면 언제나 오게나!:1"});
+		_dialogData.Add((int)ObjectNum.NPC3, new string[]{"우리 동네에 살인사건이라니..에잉 쯧쯧:1"});
+		_dialogData.Add((int)ObjectNum.NPC4, new string[]{"손님들이 그만 좀 왔으면 좋겠네요:1"});
+		_dialogData.Add((int)ObjectNum.NPC5, new string[]{"이..이제 해..행복할 수 있어!:1" });
+		_dialogData.Add((int)ObjectNum.NPC6, new string[]{"쓰디쓴 술엔 달콤한 사탕이 어울리죠:1" });
+		_dialogData.Add((int)ObjectNum.NPC7, new string[]{"뭘 보죠?:1" });
+		_dialogData.Add((int)ObjectNum.Object1, new string[]{"펍으로 가는 입구다.:1"});
     }
 
     private void GenerateQuestDialogData()
     {
-        //해당 obj + quest + order
+        // 해당 obj + quest + order
         _dialogData.Add((int)ObjectNum.NPC1 + (int)QuestNum.First,
                         new string[] { "오! 탐정님 오랜만에 뵙는군요! 이쪽으로 오시죠.:1",              
                                        "밥 경관님 감사합니다. 오랜만이군요.:0",
@@ -46,7 +45,7 @@ public class DialogManager : MonoBehaviour
 									   "(다른 경찰들의 따가운 시선이 느껴진다):0",
 									   "아직 다들 탐정님을 경험해보지 못해서 그럴테죠...:1",
 									   "전 이만 조사하러 가보겠습니다. 그럼 고생하세요.:0",
-									   "탐정님도 항상 조심하세요. 새로운 사실이 나오면 말씀드리도록 하겠습니다.:1",
+									   "탐정님도 항상 조심하세요.\n새로운 사실이 나오면 말씀드리도록 하겠습니다.:1",
 									   "(현장과 가까운 중식당부터 조사해보자):0"});
         _dialogData.Add((int)ObjectNum.NPC2 + (int)QuestNum.Second,
                         new string[] { "실례합니다. 혹시 사장님 계십니까?:0",
@@ -57,8 +56,7 @@ public class DialogManager : MonoBehaviour
 									   "글쎄.. 본 것 같기도 하고 아닌거 같기도 하고.. 일 좀 도와주면 생각날거 같기도 한데...:1"});
 		//미니게임 구현
 		_dialogData.Add((int)ObjectNum.NPC2 + (int)QuestNum.Second +1,
-						new string[] { "실례합니다. 혹시 사장님 계십니까?:0",
-									   "탐정양반.. 우리 가게에서 일해볼 생각 없는가?.:1",
+						new string[] { "탐정양반.. 우리 가게에서 일해볼 생각 없는가?.:1",
 									   "자네 손이 정말 빠르구만.. 아주 탐나!!.:1",
 									   "후.. 이제 좀 생각 나십니까?.:0",
 									   "가만 보자.. 그러니까.. 그래 어제 가게 마감하고 문닫을 때, 누군가 호텔에서 나오더구만.:1",
@@ -69,7 +67,7 @@ public class DialogManager : MonoBehaviour
 									   "바쁜데 일 도와줘서 내가 더 고맙지 뭐, 아무튼 도움이 됐길 바라네.:1",
 									   "(누군가 나오는게 보였다는 호텔 정문쪽으로 가보자):0"});
 
-		_dialogData.Add((int)ObjectNum.Evidence1 + (int)QuestNum.Third,
+		_dialogData.Add((int)ObjectNum.Object1 + (int)QuestNum.Third,
 						new string[] { "(호텔 앞을 조사하던중 그 곳을 비추고있는 CCTV를 발견했다):0",
 									   "(CCTV는 가까운 펍에서 관리하는 듯 하다):0",
 									   "아직 이른 시간이라 문이 굳게 닫혀있다.:1",
@@ -170,34 +168,67 @@ public class DialogManager : MonoBehaviour
 									   "지금 그게 남편을 하루 아침에 잃은 사람한테 할 소리인가요?:1", 
 									   "어이가 없네요 비키세요 당장!!:1"});
 
-		_dialogData.Add((int)ObjectNum.NPC7 + (int)QuestNum.Seventh +1,
-						new string[] { " 증거라면 부인께서 가지고 계시지않습니까?:0",
+		_dialogData.Add((int)ObjectNum.NPC7 + (int)QuestNum.Seventh + 1,
+						new string[] { "증거라면 부인께서 가지고 계시지않습니까?:0",
 									   "무슨...!:1",
 									   "현장에서 범행도구가 사라져있었죠.. 하지만 사라진건 범행도구 뿐만이 아니었습니다.:0",
 									   "바로 4개 여야할 배게가 3개밖에 없었죠.. 나머지 하나.. 부인의 캐리어 안에 있는것 아닙니까?:0",
-									   "(부인은 얼굴이 새빨개진채로 아무말도 못하고 서있었다."});
+									   "(부인은 얼굴이 새빨개진채로 아무말도 못하고 서있었다.):0"});
 	}
 
-    public string GetDialog(int objectId, int dialogIndex)
+    public string GetDialog(int objectId, int dialogIndex, out string dialogObject)
     {
         if (!_dialogData.ContainsKey(objectId))
         {
             if (!_dialogData.ContainsKey(objectId - objectId % 100))
             {
-                return GetDialog(objectId - objectId % 1000, dialogIndex);
+                return GetDialog(objectId - objectId % 1000, dialogIndex, out dialogObject);
             }
             else
             {
-                return GetDialog(objectId - objectId % 100, dialogIndex);
+                return GetDialog(objectId - objectId % 100, dialogIndex, out dialogObject);
             }
         }
         if (dialogIndex == _dialogData[objectId].Length)
         {
+	        dialogObject = null;
             return null;
         }
         else
         {
-            return _dialogData[objectId][dialogIndex];
+	        string[] dialog = _dialogData[objectId][dialogIndex].Split(':');
+	        dialogObject = GetDialogObject(objectId - objectId % 1000, int.Parse(dialog[1]));
+            return dialog[0];
         }
+    }
+
+    private string GetDialogObject(int objectId, int dialogTag)
+    {
+	    if (dialogTag == 0)
+	    {
+		    return "player";
+	    }
+
+	    switch ( objectId )
+	    {
+		    case (int)ObjectNum.NPC1:
+			    return "밥 경관";
+		    case (int)ObjectNum.NPC2:
+			    return "중식당 사장";
+		    case (int)ObjectNum.NPC3:
+			    return "건물주";
+		    case (int)ObjectNum.NPC4:
+			    return "피자가게 직원";
+		    case (int)ObjectNum.NPC5:
+			    return "노숙자";
+		    case (int)ObjectNum.NPC6:
+			    return "바텐더";
+		    case (int)ObjectNum.NPC7:
+			    return "부인";
+		    case (int)ObjectNum.Object1:
+			    return "Pub";
+		    default:
+			    return "누구야";
+	    }
     }
 }
