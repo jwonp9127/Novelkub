@@ -8,9 +8,11 @@ public class DialogManager : MonoBehaviour
     private QuestManager _questManager;
     private Dictionary<int, string[]> _dialogData;
     private ObjectNum _objectNum;
-
+	public int[,] _QuestItem;
+    public ItemData[] QuestItemDatas = new ItemData[8]; //추가
     private void Awake()
     {
+        _QuestItem = new int[2, 4] { {1100,0,11,2 },{2200,0,5,3 }  };
         _questManager = GetComponent<QuestManager>();
         _dialogData = new Dictionary<int, string[]>();
         GenerateDialogData();
