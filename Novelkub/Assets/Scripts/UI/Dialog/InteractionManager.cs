@@ -107,17 +107,24 @@ public class InteractionManager : MonoBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            if (Questid == DialogManager._QuestItem[i, 0])
+            if (Questid == DialogManager._QuestItem[i, 0] && npcIdex == DialogManager._QuestItem[i, 1] && talkIndex == DialogManager._QuestItem[i, 2])
             {
-                if (npcIdex == DialogManager._QuestItem[i, 1])
-                {
-                    if (talkIndex == DialogManager._QuestItem[i, 2])
-                    {
-                        Inventory.instance.AddItem(DialogManager.QuestItemDatas[DialogManager._QuestItem[i, 3]]);
-                        Debug.Log(DialogManager._QuestItem[i, 3] + "ADD인벤토리하기");
-                    }
-                }
+                Inventory.instance.AddItem(DialogManager.QuestItemDatas[DialogManager._QuestItem[i, 3]]);
+                Debug.Log(DialogManager._QuestItem[i, 3] + "ADD인벤토리하기");
             }
+            //if (Questid == DialogManager._QuestItem[i, 0])
+            //{
+            //    if (npcIdex == DialogManager._QuestItem[i, 1])
+            //    {
+            //        if (talkIndex == DialogManager._QuestItem[i, 2])
+            //        {
+            //            Inventory.instance.AddItem(DialogManager.QuestItemDatas[DialogManager._QuestItem[i, 3]]);
+            //            Debug.Log(DialogManager._QuestItem[i, 3] + "ADD인벤토리하기");
+            //        }
+            //    }
+            //}
         }
+
+        
     }
 }
