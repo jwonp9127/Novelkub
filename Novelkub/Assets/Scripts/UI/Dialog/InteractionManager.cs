@@ -53,8 +53,8 @@ public class InteractionManager : MonoBehaviour
     {
         int questDialogIndex = QuestManager.GetQuestDialogIndex(objectId);
         string dialogData = DialogManager.GetDialog(objectId + questDialogIndex, dialogIndex);
-        CheckAddItem(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
-        if (dialogData == null)
+        CheckAddItem(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex); //아마 이거지 않을까????
+        if (dialogData == null) 
         {
             ShowQuestInfo(DialogManager.questName, DialogManager.questInfo);
             QuestManager.CheckQuest(objectId);

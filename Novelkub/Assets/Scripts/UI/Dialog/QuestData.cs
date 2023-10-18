@@ -23,7 +23,7 @@ public class QuestData
 }
 public class QuestItem
 {
-    public ItemData []QuestItemDatas = new ItemData[8];
+    //public ItemData[] QuestItemDatas = new ItemData[8];
     int NpcIndex;
     int TalkIndex;
     ItemData QuestItemData;
