@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class Player : MonoBehaviour
     public Rigidbody Rigidbody { get; private set; }
     public Animator Animator { get; private set; }
     public PlayerInput Input { get; private set; }
+
+    public InteractionManager interactionManager;
+
+    private GameObject _nearObject;
+    private GameObject _pressKey;
     public CharacterController Controller { get; private set; }
     public ForceReceiver ForceReceiver { get; private set; }
 
@@ -35,6 +41,25 @@ public class Player : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         stateMachine.ChangeState(stateMachine.IdleState);
+        Input.PlayerActions.Interaction.started += OnInteractionStarted;
+        Input.PlayerActions.Cancel.started += OnCancelStarted;
+    }
+
+    private void OnInteractionStarted(InputAction.CallbackContext context)
+    {
+        if (_nearObject != null)
+        {
+            interactionManager.Interaction(_nearObject);
+            Debug.Log("NPC 상호작용");
+        }
+    }
+
+    private void OnCancelStarted(InputAction.CallbackContext context)
+    {
+        if (interactionManager.isAction)
+        {
+            interactionManager.ExitDialog(out interactionManager.dialogIndex);
+        }
     }
     private void Update()
     {
