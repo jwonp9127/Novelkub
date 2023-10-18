@@ -6,9 +6,10 @@ public class Mayac : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform mayacPos;
+    private Rigidbody rigidbody;
     void Start()
     {
-
+        rigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -23,8 +24,20 @@ public class Mayac : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.F))
             {
+                rigidbody.GetComponent<Rigidbody>().useGravity = false;
+                Debug.Log("³ª µé¾î°¬¾î");
                 transform.position = mayacPos.position;
             }
+
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+
+            rigidbody.GetComponent<Rigidbody>().useGravity = true;
 
         }
     }
