@@ -53,7 +53,7 @@ public class InteractionManager : MonoBehaviour
     {
         int questDialogIndex = QuestManager.GetQuestDialogIndex(objectId);
         string dialogData = DialogManager.GetDialog(objectId + questDialogIndex, dialogIndex);
-
+        CheckAddItem(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
         if (dialogData == null)
         {
             ShowQuestInfo(DialogManager.questName, DialogManager.questInfo);
@@ -71,6 +71,7 @@ public class InteractionManager : MonoBehaviour
         {
             dialogText.text = dialogData;
         }
+
         OnDialog();
         dialogIndex++;
     }
@@ -92,5 +93,32 @@ public class InteractionManager : MonoBehaviour
     {
         questNameText.text = qName;
         questInfoText.text = qInfo;
+    }
+    public void CheckAddItem(int Questid,int npcIdex, int talkIndex)
+    {
+        for(int i = 0; i < DialogManager._QuestItem.Length; i++)
+        {
+            if(Questid == DialogManager._QuestItem[i, 0])
+            {
+                if(npcIdex == DialogManager._QuestItem[i, 1])
+                {
+                    if(talkIndex == DialogManager._QuestItem[i, 2])
+                    {
+                        Debug.Log(DialogManager._QuestItem[i, 3] + "ADD인벤토리하기");
+                    }
+                }
+            }
+        }
+        //for (int index = 0; index < DialogManager._QuestItem.Count; index++)
+        //{
+        //    if(Questid == DialogManager._QuestItem[0])
+        //}
+        //    foreach (KeyValuePair<int, int[]> QI in DialogManager._QuestItem)
+        //{
+        //    if(Questid == QI.Key)
+        //    {
+        //     //   if (npcIdex == DialogManager._QuestItem[]
+        //    }
+        //}
     }
 }

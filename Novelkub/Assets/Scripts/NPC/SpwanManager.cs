@@ -46,7 +46,7 @@ public class SpwanManager : MonoBehaviour
             noSooks[RandomPosList[rand]].transform.position = noSooksPositoin[i].position;
             RandomPosList.RemoveAt(rand);
         }
-        mayac.transform.position = ItemPos[Random.Range(0, 9)].position;
+        mayac.transform.position = ItemPos[Random.Range(0, 8)].position;
         mayac.SetActive(false);
     }
 }

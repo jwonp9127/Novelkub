@@ -5,8 +5,16 @@ using UnityEngine;
 
 public class DialogManager : MonoBehaviour
 {
+    
     private QuestManager _questManager;
     private Dictionary<int, string[]> _dialogData;
+
+
+    //public Dictionary<int, int[]> _QuestItem;
+    public int[,] _QuestItem; // =  new int 
+    public ItemData[] QuestItemDatas = new ItemData[8];
+
+
     private ObjectNum _objectNum;
     public string questName { get; private set; }
     public string questInfo { get; private set; }
@@ -15,6 +23,8 @@ public class DialogManager : MonoBehaviour
     {
         _questManager = GetComponent<QuestManager>();
         _dialogData = new Dictionary<int, string[]>();
+        //_QuestItem = new Dictionary<int, int[]>();
+        _QuestItem = new int[2, 4] { { 100, 100, 100, 2 }, { 100, 100, 100, 2 } };
         GenerateDialogData();
         GenerateQuestDialogData();
     }
@@ -39,6 +49,11 @@ public class DialogManager : MonoBehaviour
                         new string[] { "왔어?.",              
                                        "맞아, 이건 첫 번째 퀘스트야.",
                                        "첫 번째 퀘스트가 끝이 났어.: "});
+    }
+    private void GenerateQuestItem()
+    {
+       // _QuestItem.Add((int)ObjectNum.NPC1, new int[] { 1, 2, 3 }) ;
+
     }
 
     public string GetDialog(int objectId, int dialogIndex)

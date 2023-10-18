@@ -55,4 +55,9 @@ public class QuestManager : MonoBehaviour
         questId += 100;
         questActionIndex = 0;
     }
+
+    public void CheckedQuestItem()
+    {
+
+    }
 }

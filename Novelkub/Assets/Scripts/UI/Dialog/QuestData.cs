@@ -18,4 +18,22 @@ public class QuestData
         QuestName = name;
         NpcId = npc;
     }
+
+    
+}
+public class QuestItem
+{
+    public ItemData []QuestItemDatas = new ItemData[8];
+    int NpcIndex;
+    int TalkIndex;
+    ItemData QuestItemData;
+
+    public QuestItem(int npcIndex, int talkIndex, ItemData item)
+    {
+        NpcIndex = npcIndex;
+        TalkIndex = talkIndex;
+        QuestItemData = item;
+    }
+
+    
 }
