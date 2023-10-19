@@ -28,7 +28,7 @@
 //            gameduration -= time.deltatime;
 //            if (gameduration <= 0.0f)
 //            {
-//                //restartquest();
+//                restartquest();
 //            }
 //            updatetimertext();
 //        }
@@ -36,18 +36,18 @@
 
 //    private void ontriggerenter(collider other)
 //    {
-//        if(other.tag == "point")
+//        if (other.tag == "point")
 //        {
 //            pointcount++;
 //            audio.play();
 //            other.gameobject.setactive(false);
 //            if (pointcount == manager.totalpointcount)
 //            {
-//                //game clear
+//                game clear
 //            }
-//            else 
-//            { 
-//                //restartqeuest
+//            else
+//            {
+//                restartqeuest
 //            }
 //        }
 //    }
