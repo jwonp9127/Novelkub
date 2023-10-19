@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
 
     private PlayerStateMachine stateMachine;
 
+    public int pointCount;
+
     private void Awake()
     {
         AnimationData.Initialize();

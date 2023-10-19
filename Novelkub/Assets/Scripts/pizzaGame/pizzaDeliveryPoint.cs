@@ -1,61 +1,60 @@
-//using system.collections;
-//using system.collections.generic;
-//using unityengine;
-//using unityengine.ui;
-//public tmpro;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using System;
 
-//public class pizzadeliverypoint : monobehaviour
-//{
-//    audiosource audio;
-//    public pizzagamemanager manager;
-//    private float gameduration = 180.0f;
-//    public tmp_text timertext;
+public class pizzaDeliveryPoint : MonoBehaviour
+{
+    AudioSource audio;
+    public pizzaGameManager manager;
+    private float gameduration = 180.0f;
+    public TMP_Text timeText;
 
-//    void awake()
-//    {
-//        audio = getcomponent<audiosource>();
-//    }
+    void Awake()
+    {
+        audio = GetComponent<AudioSource>();
+    }
 
-//    private void start()
-//    {
-//        updatetimertext();
-//    }
+    private void Start()
+    {
+        UpdatetimeText();
+    }
 
-//    private void update()
-//    {
-//        if (gameduration > 0.0f)
-//        {
-//            gameduration -= time.deltatime;
-//            if (gameduration <= 0.0f)
-//            {
-//                restartquest();
-//            }
-//            updatetimertext();
-//        }
-//    }
+    private void UpdatetimeText()
+    {
+        throw new NotImplementedException();
+    }
 
-//    private void ontriggerenter(collider other)
-//    {
-//        if (other.tag == "point")
-//        {
-//            pointcount++;
-//            audio.play();
-//            other.gameobject.setactive(false);
-//            if (pointcount == manager.totalpointcount)
-//            {
-//                game clear
-//            }
-//            else
-//            {
-//                restartqeuest
-//            }
-//        }
-//    }
+    private void Update()
+    {
+        if (gameduration > 0.0f)
+        {
+            gameduration -= Time.deltaTime;
+            if (gameduration <= 0.0f)
+            {
+                //restartquest();
+            }
+            UpdatetimeText();
+        }
+    }
 
-//    private void updatetimertext()
-//    {
-//        int minutes = mathf.floortoint(gameduration / 60);
-//        int seconds = mathf.floortoint(gameduration - minutes * 60);
-//        timertext.text = string.format.format("{0:00}:{1:00}", minutes, seconds);
-//    }
-//}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "point")
+        {
+            Player player = other.GetComponent<Player>();
+            player.pointCount++;
+            audio.Play();
+            gameObject.SetActive(false);
+        }
+    }
+
+    private void updatetimertext()
+    {
+        int minutes = Mathf.FloorToInt(gameduration / 60);
+        int seconds = Mathf.FloorToInt(gameduration - minutes * 60);
+        timeText.text = string.Format ("{0:00}:{1:00}", minutes, seconds);
+    }
+}
