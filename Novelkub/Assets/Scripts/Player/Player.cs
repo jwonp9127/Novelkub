@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour
 
     private GameObject _nearObject;
     private GameObject _pressKey;
+    public GameObject interactionKey;
     public CharacterController Controller { get; private set; }
     public Collider InteractionArea { get; private set; }
     public ForceReceiver ForceReceiver { get; private set; }
@@ -52,6 +54,7 @@ public class Player : MonoBehaviour
         stateMachine.ChangeState(stateMachine.IdleState);
         Input.PlayerActions.Interaction.started += OnInteractionStarted;
         Input.PlayerActions.Cancel.started += OnCancelStarted;
+        interactionKey.SetActive(false);
     }
 
     public void Teleport(Vector3 spawnPosition)
@@ -65,6 +68,7 @@ public class Player : MonoBehaviour
     {
         if (_nearObject != null)
         {
+            interactionKey.SetActive(false);
             if (_nearObject.name == "Take1StartArea")
             {
                 TimelineManager.Take1();
@@ -103,30 +107,35 @@ public class Player : MonoBehaviour
         if (other.tag == "NPC")
         {
             _nearObject = other.gameObject;
+            interactionKey.SetActive(true);
             Debug.Log("NPC 충돌");
             //_nearObject
         }
         else if (other.tag == "Trash")
         {
             _nearObject = other.gameObject;
+            interactionKey.SetActive(true);
             Debug.Log("Trash 충돌");
         }
         else if (other.tag == "TimeLine")
         {
             _nearObject = other.gameObject;
+            interactionKey.SetActive(true);
             Debug.Log("timelineArea 충돌");
         }
         else if (other.tag == "InteractableObject")
         {
             _nearObject = other.gameObject;
+            interactionKey.SetActive(true);
             Debug.Log("InteractableObject 충돌");
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.tag == "NPC" || other.tag == "Trash" || other.tag == "InteractableObject")
+        if (other.tag == "NPC" || other.tag == "Trash" || other.tag == "InteractableObject" || other.tag == "TimeLine")
         {
+            interactionKey.SetActive(false);
             _nearObject = null;
         }
     }
