@@ -9,6 +9,9 @@ public class SpwanManager : MonoBehaviour
     public List<int> RandomPosList = new List<int>() { 0, 1, 2, 3 };
     public Transform[] ItemPos = new Transform[8];
     public GameObject mayac;
+
+    //public GameObject PubPotalOut;
+    //public GameObject PubPotalIn;
     // Start is called before the first frame update
     public static SpwanManager Instance;
     void Awake()
@@ -48,5 +51,14 @@ public class SpwanManager : MonoBehaviour
         }
         mayac.transform.position = ItemPos[Random.Range(0, 8)].position;
         mayac.SetActive(false);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //if(other.tag == "Player")
+        //{
+        //    other.gameObject.transform.position = PubPotalIn.transform.position;
+
+        //}
     }
 }
