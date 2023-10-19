@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
 				}
 				Debug.Log("쓰레기를 치워따");
 			}
-			else
+            else
             {
                 InteractionManager.Interaction(_nearObject);
                 Debug.Log("NPC 상호작용");               
@@ -114,13 +114,18 @@ public class Player : MonoBehaviour
         else if (other.tag == "TimeLine")
         {
             _nearObject = other.gameObject;
-            Debug.Log("timelinearea 충돌");
+            Debug.Log("timelineArea 충돌");
+        }
+        else if (other.tag == "InteractableObject")
+        {
+            _nearObject = other.gameObject;
+            Debug.Log("InteractableObject 충돌");
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.tag == "NPC" || other.tag == "Trash")
+        if (other.tag == "NPC" || other.tag == "Trash" || other.tag == "InteractableObject")
         {
             _nearObject = null;
         }
