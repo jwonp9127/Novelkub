@@ -1,4 +1,5 @@
 using Microsoft.Unity.VisualStudio.Editor;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -37,6 +38,7 @@ public class Inventory : MonoBehaviour
 
     private int curEquipIndex;
 
+    public GameObject Inven2;
 
 
 
@@ -150,6 +152,21 @@ public class Inventory : MonoBehaviour
         }
 
        // RemoveSelectedItem(selectedItem.item.itemNum);
+    }
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.Alpha2)) 
+        {
+            if (slots[2].item != null)
+            {
+                Debug.Log("aaw");
+                Inven2.SetActive(true);
+            }
+        }
+        else
+        {
+            Inven2.SetActive(false);
+        }
     }
 
     public void OnEquipButton()
