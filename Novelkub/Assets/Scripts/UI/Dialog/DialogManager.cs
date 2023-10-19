@@ -19,8 +19,8 @@ public class DialogManager : MonoBehaviour
         _dialogData = new Dictionary<int, string[]>();
         GenerateDialogData();
         GenerateQuestDialogData();
-        _QuestItem  = new int[8, 4] { { (int)ObjectNum.NPC1 + (int)QuestNum.First, 0, 13, 0 }, { (int)ObjectNum.NPC2 + (int)QuestNum.Second, 0, 5, 1 }, { (int)ObjectNum.NPC2 + (int)QuestNum.Second + 1, 0, 10, 2 }, { (int)ObjectNum.InteractableObject1 + (int)QuestNum.Third, 0, 4,3 }, { (int)ObjectNum.NPC3 + (int)QuestNum.Third + 2, 0, 5, 4 }, { (int)ObjectNum.NPC4 + (int)QuestNum.Forth + 1, 0, 10, 5 }, { (int)ObjectNum.NPC6 + (int)QuestNum.Sixth + 1, 0, 8, 6 }, { (int)ObjectNum.NPC7 + (int)QuestNum.Seventh + 1, 0, 4, 7 } }; // 어는 부분에 미니게임을 시작할지 넣는 부분
-        _MiniGame = new int[2, 4] { { (int)ObjectNum.NPC1 + (int)QuestNum.First, 0, 14, 0 }, { (int)ObjectNum.NPC2 + (int)QuestNum.Second, 0, 5, 3 } };
+        _MiniGame = new int[2, 4] { { 3301, 0, 5, 2 }, { 4400, 0, 5, 3 } }; // 어는 부분에 미니게임을 시작할지 넣는 부분
+        //_QuestItem = new int[2, 4] { { (int)ObjectNum.NPC1 + (int)QuestNum.First, 0, 11, 0 }, { (int)ObjectNum.NPC2 + (int)QuestNum.Second, 0, 5, 3 } };
     }
 
     private void GenerateDialogData()
