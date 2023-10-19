@@ -58,10 +58,6 @@ public class InteractionManager : MonoBehaviour
 
     private void Dialog(int objectId, bool withQuest)
     {
-        int questDialogIndex = QuestManager.GetQuestDialogIndex();
-        string dialogData = DialogManager.GetDialog(objectId + questDialogIndex, dialogIndex, out dialogObject);
-         CheckAddItem(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
-         CheckMiniGame(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
         if (DialogManager.IsMiniGame)
         {
             Debug.Log("이곳은 못가");
@@ -71,6 +67,11 @@ public class InteractionManager : MonoBehaviour
             DialogManager.IsMiniGame = !DialogManager.IsMiniGame;
             return;
         }
+        int questDialogIndex = QuestManager.GetQuestDialogIndex();
+        string dialogData = DialogManager.GetDialog(objectId + questDialogIndex, dialogIndex, out dialogObject);
+         CheckAddItem(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
+         CheckMiniGame(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
+        
         if (dialogData == null)
         {
             QuestManager.CheckQuest(objectId);
