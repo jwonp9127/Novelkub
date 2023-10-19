@@ -6,7 +6,8 @@ TagManager:
   tags:
   - NPC
   - Evidence
-  - Point
+  - TimeLine
+  - Trash
   layers:
   - Default
   - TransparentFX

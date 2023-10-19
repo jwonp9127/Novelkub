@@ -13,26 +13,35 @@ public class Player : MonoBehaviour
 
     public Rigidbody Rigidbody { get; private set; }
     public Animator Animator { get; private set; }
+    public Collider Collider { get; private set; }
+
     public PlayerInput Input { get; private set; }
 
-    public InteractionManager interactionManager;
+    public GameObject manager;
+    public InteractionManager InteractionManager { get; private set; }
+    public TimelineManager TimelineManager { get; private set; }
 
     private GameObject _nearObject;
     private GameObject _pressKey;
     public CharacterController Controller { get; private set; }
+    public Collider InteractionArea { get; private set; }
     public ForceReceiver ForceReceiver { get; private set; }
 
     private PlayerStateMachine stateMachine;
 
-    private void Awake()
+    private int DestroyTrashCount = 0;
+
+
+	private void Awake()
     {
         AnimationData.Initialize();
-
         Rigidbody = GetComponent<Rigidbody>();
         Animator = GetComponentInChildren<Animator>();
         Input = GetComponent<PlayerInput>();
         Controller = GetComponent<CharacterController>();
         ForceReceiver = GetComponentInChildren<ForceReceiver>();
+        InteractionManager = manager.GetComponent<InteractionManager>();
+        TimelineManager = manager.GetComponent<TimelineManager>();
 
         stateMachine = new PlayerStateMachine(this);
     }
@@ -45,22 +54,83 @@ public class Player : MonoBehaviour
         Input.PlayerActions.Cancel.started += OnCancelStarted;
     }
 
+    public void Teleport(Vector3 spawnPosition)
+    {
+        Controller.enabled = false;
+        transform.position = spawnPosition;
+        Controller.enabled = true;
+    }
+
     private void OnInteractionStarted(InputAction.CallbackContext context)
     {
         if (_nearObject != null)
         {
-            interactionManager.Interaction(_nearObject);
-            Debug.Log("NPC ��ȣ�ۿ�");
+            if (_nearObject.name == "Take1StartArea")
+            {
+                TimelineManager.Take1();
+            }
+            else if (_nearObject.name == "Take2StartArea")
+            {
+                TimelineManager.Take2();
+            }
+			else if (_nearObject.CompareTag("Trash"))
+			{
+                Destroy(_nearObject);
+                DestroyTrashCount++;
+                if(DestroyTrashCount == 7)
+                {
+					InteractionManager.FinishMiniGame();
+				}
+				Debug.Log("쓰레기를 치워따");
+			}
+            else
+            {
+                InteractionManager.Interaction(_nearObject);
+                Debug.Log("NPC 상호작용");               
+            }
         }
     }
 
     private void OnCancelStarted(InputAction.CallbackContext context)
     {
-        if (interactionManager.isAction)
+        if (InteractionManager.isAction)
         {
-            interactionManager.ExitDialog(out interactionManager.dialogIndex);
+            InteractionManager.ExitDialog(out InteractionManager.dialogIndex);
         }
     }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "NPC")
+        {
+            _nearObject = other.gameObject;
+            Debug.Log("NPC 충돌");
+            //_nearObject
+        }
+        else if (other.tag == "Trash")
+        {
+            _nearObject = other.gameObject;
+            Debug.Log("Trash 충돌");
+        }
+        else if (other.tag == "TimeLine")
+        {
+            _nearObject = other.gameObject;
+            Debug.Log("timelineArea 충돌");
+        }
+        else if (other.tag == "InteractableObject")
+        {
+            _nearObject = other.gameObject;
+            Debug.Log("InteractableObject 충돌");
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "NPC" || other.tag == "Trash" || other.tag == "InteractableObject")
+        {
+            _nearObject = null;
+        }
+    }
+
     private void Update()
     {
         stateMachine.HandleInput();

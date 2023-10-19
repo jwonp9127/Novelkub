@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public enum ObjectNum
 {
@@ -12,7 +13,7 @@ public enum ObjectNum
     NPC8 = 8000,
 	NPC9 = 9000,
 
-	Object1 = 11000,
+	InteractableObject1 = 11000,
     Evidence2 = 12000,
     Evidence3 = 13000,
     Evidence4 = 14000,
@@ -21,5 +22,5 @@ public enum ObjectNum
 public class ObjectData : MonoBehaviour
 {
     public int objectId;
-    public bool isNPC;
+    public bool withQuest;
 }
