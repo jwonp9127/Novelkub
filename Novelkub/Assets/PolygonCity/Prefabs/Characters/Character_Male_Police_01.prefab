@@ -2851,7 +2851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectId: 1000
-  isNPC: 1
+  withQuest: 1
 --- !u!136 &8578377878972641893
 CapsuleCollider:
   m_ObjectHideFlags: 0

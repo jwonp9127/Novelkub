@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class InteractionManager : MonoBehaviour
 {
@@ -24,12 +25,11 @@ public class InteractionManager : MonoBehaviour
     public int dialogIndex;
 
     [Header("MiniGame")]
-    public GameObject MiniGameUI;
-    public TMP_Text MiniGameNameText;
-    public TMP_Text MiniGameText;
+    public GameObject miniGameUI;
+    public TMP_Text miniGameNameText;
+    public TMP_Text miniGameText;
    // public bool IsMiniGame;
-
-
+   
     public static InteractionManager instance;
 
    
@@ -42,7 +42,7 @@ public class InteractionManager : MonoBehaviour
 
     private void Start()
     {
-        MiniGameUI.SetActive(false);
+        miniGameUI.SetActive(false);
         Debug.Log(QuestManager.CheckQuest());
         questInfoUI.SetActive(true);
         dialogUI.SetActive(false);
@@ -53,15 +53,15 @@ public class InteractionManager : MonoBehaviour
     {
         scanObject = obj;
         ObjectData scanObjectData = scanObject.GetComponent<ObjectData>();
-        Dialog(scanObjectData.objectId, scanObjectData.isNPC);
+        Dialog(scanObjectData.objectId, scanObjectData.withQuest);
     }
 
-    private void Dialog(int objectId, bool isNPC)
+    private void Dialog(int objectId, bool withQuest)
     {
         int questDialogIndex = QuestManager.GetQuestDialogIndex();
         string dialogData = DialogManager.GetDialog(objectId + questDialogIndex, dialogIndex, out dialogObject);
-        //CheckAddItem(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
-        CheckMiniGame(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
+        // CheckAddItem(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
+        // CheckMiniGame(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
         if (DialogManager.IsMiniGame)
         {
             Debug.Log("이곳은 못가");
@@ -79,7 +79,7 @@ public class InteractionManager : MonoBehaviour
             return;
         }
         
-        if (isNPC)
+        if (withQuest)
         {
             dialogText.text = dialogData;
 
@@ -140,28 +140,27 @@ public class InteractionManager : MonoBehaviour
     //    }
     //}
 
-    public void CheckMiniGame(int Questid, int npcIdex, int talkIndex)
+    public void CheckMiniGame(int questid, int npcIndex, int talkIndex)
     {
         for (int i = 0; i < 2; i++) //이거 2라고 써있는 것은 바꿔야 한당.
         {
-            if (Questid == DialogManager._MiniGame[i, 0] && npcIdex == DialogManager._MiniGame[i, 1] && talkIndex == DialogManager._MiniGame[i, 2])
-            {
-                DialogManager.IsMiniGame = true;
-                switch (i)
-                {
-                    case (int)QuestMiniGame.First:
-                        OnMiniGame("쓰레기를 치우자 ", "근처의 쓰레기 7개를 치워주세요");
-                        break;
-                    case (int)QuestMiniGame.Second:
-                        OnMiniGame("쓰레기를 치우자 ", "근처의 쓰레기 7개를 치워주세요");
-                        break;
-                    case 2:
-                        break;
-                }
-
-                //Debug.Log(DialogManager._QuestItem[i, 3] + "ADD인벤토리하기");
-            }
-
+            // if (Questid == DialogManager._MiniGame[i, 0] && npcIndex == DialogManager._MiniGame[i, 1] && talkIndex == DialogManager._MiniGame[i, 2])
+            // {
+            //     DialogManager.IsMiniGame = true;
+            //     switch (i)
+            //     {
+            //         case (int)QuestMiniGame.First:
+            //             OnMiniGame("경찰에게 받은 단서 ", "첫 미니게임 내용 첫 미니게임 내용 첫 미니게임 내용 첫 미니게임 내용 첫 미니게임 내용");
+            //             break;
+            //         case (int)QuestMiniGame.Second:
+            //             OnMiniGame("두 번쨰 미니게임", "두번째 미니게임 내용");
+            //             break;
+            //         case 2:
+            //             break;
+            //     }
+            //
+            //     //Debug.Log(DialogManager._QuestItem[i, 3] + "ADD인벤토리하기");
+            // }
         }
     }
 
@@ -176,17 +175,17 @@ public class InteractionManager : MonoBehaviour
     public void OnMiniGame(string mininame, string miniContent)
     {
         questInfoUI.SetActive(false);
-        MiniGameUI.SetActive(true);
-        MiniGameNameText.text = mininame;
-        MiniGameText.text = miniContent;
+        miniGameUI.SetActive(true);
+        miniGameNameText.text = mininame;
+        miniGameText.text = miniContent;
     }
 
     public void OffMiniGame()
     {
         questInfoUI.SetActive(true);
-        MiniGameUI.SetActive(false);
-        MiniGameNameText.text = "";
-        MiniGameText.text = "";
+        miniGameUI.SetActive(false);
+        miniGameNameText.text = "";
+        miniGameText.text = "";
     }
 
 }

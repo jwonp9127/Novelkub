@@ -32,7 +32,7 @@ public class DialogManager : MonoBehaviour
 		_dialogData.Add((int)ObjectNum.NPC5, new string[]{"이..이제 해..행복할 수 있어!:1" });
 		_dialogData.Add((int)ObjectNum.NPC6, new string[]{"쓰디쓴 술엔 달콤한 사탕이 어울리죠:1" });
 		_dialogData.Add((int)ObjectNum.NPC7, new string[]{"뭘 보죠?:1" });
-		_dialogData.Add((int)ObjectNum.Object1, new string[]{"펍으로 가는 입구다.:1"});
+		_dialogData.Add((int)ObjectNum.InteractableObject1, new string[]{"펍으로 가는 입구다.:0"});
     }
 
     private void GenerateQuestDialogData()
@@ -74,10 +74,10 @@ public class DialogManager : MonoBehaviour
 									   "바쁜데 일 도와줘서 내가 더 고맙지 뭐, \n아무튼 도움이 됐길 바라네.:1",
 									   "(누군가 나오는게 보였다는 호텔 정문쪽으로 가보자):0"});
 
-		_dialogData.Add((int)ObjectNum.Object1 + (int)QuestNum.Third,
+		_dialogData.Add((int)ObjectNum.InteractableObject1 + (int)QuestNum.Third,
 						new string[] { "(호텔 앞을 조사하던중 그 곳을 비추고있는 CCTV를 발견했다):0",
 									   "(CCTV는 가까운 펍에서 관리하는 듯 하다):0",
-									   "아직 이른 시간이라 문이 굳게 닫혀있다.:1",
+									   "아직 이른 시간이라 문이 굳게 닫혀있다.:0",
 									   "(근처에 있는 할아버지에게 CCTV에 대해 물어보자):0" });
 
 		_dialogData.Add((int)ObjectNum.NPC3 + (int)QuestNum.Third + 1,
@@ -232,7 +232,7 @@ public class DialogManager : MonoBehaviour
 			    return "바텐더";
 		    case (int)ObjectNum.NPC7:
 			    return "부인";
-		    case (int)ObjectNum.Object1:
+		    case (int)ObjectNum.InteractableObject1:
 			    return "Pub";
 		    default:
 			    return "누구야";
