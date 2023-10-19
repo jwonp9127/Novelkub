@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemNum: 6
   displayName: "\uC5EC\uC12F\uBC88\uC9F8 \uB2E8\uC11C"
-  description: 
+  description: "\uBC14\uD150\uB354 \\n \\n \uC8FD\uC740 \uD53C\uD574\uC790\uC758
+    \\n \uBD80\uC778\uC5D0\uAC8C\uC11C \uB9C8\uC57D \uD310\uB9E4\uB97C \\n \uBD80\uD0C1
+    \uBC1B\uC74C \\n \\n \uC790\uC2E0\uB3C4 \uC774\uC6A9\uB2F9\uD55C \\n \uAC83\uC774\uB77C
+    \uC8FC\uC7A5\uD568 \\n \\n \uD53C\uD574\uC790 \uBD80\uC778 \uC870\uC0AC"
   type: 0
   icon: {fileID: 21300000, guid: 663c37bfd647edc49baa190990b4b3ad, type: 3}
   dropPrefab: {fileID: 0}

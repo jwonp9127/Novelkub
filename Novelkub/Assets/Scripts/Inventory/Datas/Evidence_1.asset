@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemNum: 1
   displayName: "\uCCAB\uBC88\uC9F8 \uB2E8\uC11C"
-  description: 
+  description: "\uBC25 \uACBD\uAD00 \\n \\n\uD53C\uD574\uC790 \\n 40\uB300 \uB0A8\uC131
+    \\n \\n \uC0AC\uC5C5\uAC00 \\n \\n \uC0AC\uB9DD\uCD94\uC815\uC2DC\uAC04 \\n 22\uC2DC
+    ~ 23\uC2DC"
   type: 0
   icon: {fileID: 21300000, guid: 663c37bfd647edc49baa190990b4b3ad, type: 3}
   dropPrefab: {fileID: 0}
