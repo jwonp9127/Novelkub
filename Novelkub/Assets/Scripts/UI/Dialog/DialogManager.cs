@@ -20,7 +20,7 @@ public class DialogManager : MonoBehaviour
         GenerateDialogData();
         GenerateQuestDialogData();
         _QuestItem  = new int[8, 4] { { (int)ObjectNum.NPC1 + (int)QuestNum.First, 0, 13, 0 }, { (int)ObjectNum.NPC2 + (int)QuestNum.Second, 0, 5, 1 }, { (int)ObjectNum.NPC2 + (int)QuestNum.Second + 1, 0, 10, 2 }, { (int)ObjectNum.InteractableObject1 + (int)QuestNum.Third, 0, 4,3 }, { (int)ObjectNum.NPC3 + (int)QuestNum.Third + 2, 0, 5, 4 }, { (int)ObjectNum.NPC4 + (int)QuestNum.Forth + 1, 0, 10, 5 }, { (int)ObjectNum.NPC6 + (int)QuestNum.Sixth + 1, 0, 8, 6 }, { (int)ObjectNum.NPC7 + (int)QuestNum.Seventh + 1, 0, 4, 7 } }; // 어는 부분에 미니게임을 시작할지 넣는 부분
-        _MiniGame = new int[2, 4] { { (int)ObjectNum.NPC1 + (int)QuestNum.First, 0, 14, 0 }, { (int)ObjectNum.NPC2 + (int)QuestNum.Second, 0, 5, 3 } };
+        _MiniGame = new int[5, 3] { { 2200, 0, 4 }, { (int)ObjectNum.NPC3 + (int)QuestNum.Third , 0, 5 }, { (int)ObjectNum.NPC4 + (int)QuestNum.Forth, 0, 8 }, { (int)ObjectNum.NPC5 + (int)QuestNum.Fifth, 0, 7 }, { (int)ObjectNum.NPC5 + (int)QuestNum.Fifth + 1, 0, 10 } };
     }
 
     private void GenerateDialogData()
@@ -197,6 +197,8 @@ public class DialogManager : MonoBehaviour
 									   "바로 4개 여야할 배게가 3개밖에 없었죠.. \n나머지 하나.. 부인의 캐리어 안에 있는것 아닙니까?:0",
 									   "(부인은 얼굴이 새빨개진채로 아무말도 못하고 서있었다.):0"});
 	}
+
+
 
     public string GetDialog(int objectId, int dialogIndex, out string dialogObject)
     {
