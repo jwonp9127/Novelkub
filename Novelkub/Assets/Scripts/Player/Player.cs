@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
 
     public Rigidbody Rigidbody { get; private set; }
     public Animator Animator { get; private set; }
+    public Collider Collider { get; private set; }
+
     public PlayerInput Input { get; private set; }
 
     public InteractionManager interactionManager;
@@ -68,6 +70,32 @@ public class Player : MonoBehaviour
             interactionManager.ExitDialog(out interactionManager.dialogIndex);
         }
     }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "NPC")
+        {
+            _nearObject = other.gameObject;
+            Debug.Log("NPC 충돌");
+        }
+        else if (other.tag == "Evidence")
+        {
+            _nearObject = other.gameObject;
+            Debug.Log("Evidence 충돌");
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "NPC" || other.tag == "Evidence")
+        {
+            _nearObject = null;
+            if (interactionManager.isAction)
+            {
+                interactionManager.ExitDialog(out interactionManager.dialogIndex);
+            }
+        }
+    }
+
     private void Update()
     {
         stateMachine.HandleInput();
