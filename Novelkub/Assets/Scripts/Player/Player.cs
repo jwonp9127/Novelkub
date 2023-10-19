@@ -45,6 +45,13 @@ public class Player : MonoBehaviour
         Input.PlayerActions.Cancel.started += OnCancelStarted;
     }
 
+    public void Teleport(Vector3 spawnPosition)
+    {
+            Controller.enabled = false;
+            transform.position = spawnPosition;
+            Controller.enabled = true;
+    }
+
     private void OnInteractionStarted(InputAction.CallbackContext context)
     {
         if (_nearObject != null)
