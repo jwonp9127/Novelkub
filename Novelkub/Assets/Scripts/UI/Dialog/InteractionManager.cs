@@ -154,10 +154,10 @@ public class InteractionManager : MonoBehaviour
                 switch (i)
                 {
                     case (int)QuestMiniGame.First:
-                        OnMiniGame("경찰에게 받은 단서 ", "첫 미니게임 내용 첫 미니게임 내용 첫 미니게임 내용 첫 미니게임 내용 첫 미니게임 내용");
+                        OnMiniGame("경찰에게 받은 단서 ", "만두몬스터를 피해서 야채를 모으세요!");
                         break;
                     case (int)QuestMiniGame.Second:
-                        OnMiniGame("두 번쨰 미니게임", "두번째 미니게임 내용");
+                        OnMiniGame("노숙자랑의 놀이", "노숙자가 함꼐 해주는 게임을 진행해주세요!");
                         break;
                     case 2:
                         break;

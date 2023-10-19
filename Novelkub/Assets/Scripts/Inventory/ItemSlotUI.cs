@@ -31,7 +31,7 @@ public class ItemSlotUI : MonoBehaviour
         curSlot = slot;
         icon.gameObject.SetActive(true);
         icon.sprite = slot.item.icon;
-        quatityText.text = slot.quantity > 1 ? slot.quantity.ToString() : string.Empty;
+        quatityText.text = index.ToString();//slot.quantity > 1 ? slot.quantity.ToString() : string.Empty;
 
         if (outline != null)
         {
@@ -43,7 +43,7 @@ public class ItemSlotUI : MonoBehaviour
     {
         curSlot = null;
         icon.gameObject.SetActive(false);
-        // quatityText.text = string.Empty;
+         quatityText.text = index.ToString();
     }
 
     public void OnButtonClick()

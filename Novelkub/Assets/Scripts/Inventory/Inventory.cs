@@ -84,24 +84,25 @@ public class Inventory : MonoBehaviour
     {
         if (slots[index].item == null)
             return;
-        inventoryInfo.SetActive(true); //일단 임시로 적어둠
+       // inventoryInfo.SetActive(true); //일단 임시로 적어둠
         selectedItem = slots[index];
-        selectedItemIndex = index;
+        OnUseButton();
+        //selectedItemIndex = index;
 
-        selectedItemName.text = selectedItem.item.displayName;
-        selectedItemDescription.text = selectedItem.item.description;
+        //selectedItemName.text = selectedItem.item.displayName;
+        //selectedItemDescription.text = selectedItem.item.description;
 
-        selectedItemStatNames.text = string.Empty;
-        selectedItemStatValues.text = string.Empty;
+        //selectedItemStatNames.text = string.Empty;
+        //selectedItemStatValues.text = string.Empty;
 
-        for (int i = 0; i < selectedItem.item.consumables.Length; i++)
-        {
-            selectedItemStatNames.text += selectedItem.item.consumables[i].type.ToString() + "\n";
-            selectedItemStatValues.text += selectedItem.item.consumables[i].value.ToString() + "\n";
-        }
-        useButton.SetActive(true);
+        //for (int i = 0; i < selectedItem.item.consumables.Length; i++)
+        //{
+        //    selectedItemStatNames.text += selectedItem.item.consumables[i].type.ToString() + "\n";
+        //    selectedItemStatValues.text += selectedItem.item.consumables[i].value.ToString() + "\n";
+        //}
+        //useButton.SetActive(true);
 
-        dropButton.SetActive(true);
+        //dropButton.SetActive(true);
     }
 
     private void ClearSeletecItemWindow()
@@ -148,7 +149,7 @@ public class Inventory : MonoBehaviour
 
         }
 
-        RemoveSelectedItem(selectedItem.item.itemNum);
+       // RemoveSelectedItem(selectedItem.item.itemNum);
     }
 
     public void OnEquipButton()
