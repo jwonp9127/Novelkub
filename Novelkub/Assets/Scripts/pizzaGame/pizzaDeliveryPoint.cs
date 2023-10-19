@@ -9,7 +9,7 @@ public class pizzaDeliveryPoint : MonoBehaviour
         if (other.name == "Player")
         {
             Player player = other.GetComponent<Player>();
-            player.pointCount++;
+            //player.pointCount++;
             gameObject.SetActive(false);
         }
     }
