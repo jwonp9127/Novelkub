@@ -27,7 +27,7 @@ public class InteractionManager : MonoBehaviour
     public GameObject MiniGameUI;
     public TMP_Text MiniGameNameText;
     public TMP_Text MiniGameText;
-    public bool IsMiniGame;
+   // public bool IsMiniGame;
 
 
     public static InteractionManager instance;
@@ -67,8 +67,8 @@ public class InteractionManager : MonoBehaviour
             Debug.Log("이곳은 못가");
             dialogText.text = "퀘스트를 먼저 진행해주세요";
             //ExitDialog(out dialogIndex);
-            dialogUI.SetActive(IsMiniGame);
-            IsMiniGame = !IsMiniGame;
+            dialogUI.SetActive(DialogManager.IsMiniGame);
+            DialogManager.IsMiniGame = !DialogManager.IsMiniGame;
             return;
         }
         if (dialogData == null)
@@ -142,7 +142,7 @@ public class InteractionManager : MonoBehaviour
 
     public void CheckMiniGame(int Questid, int npcIdex, int talkIndex)
     {
-        for (int i = 0; i < 2; i++) //이거 2라고 써있는 것은 바꿔야 한당.
+        for (int i = 0; i < 6; i++) //이거 2라고 써있는 것은 바꿔야 한당.
         {
             if (Questid == DialogManager._MiniGame[i, 0] && npcIdex == DialogManager._MiniGame[i, 1] && talkIndex == DialogManager._MiniGame[i, 2])
             {
