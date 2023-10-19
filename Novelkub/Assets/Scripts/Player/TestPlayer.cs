@@ -57,6 +57,7 @@ public class TestPlayer : MonoBehaviour
         {
             _nearObject = other.gameObject;
             Debug.Log("NPC 충돌");
+            //_nearObject
         }
         else if (other.tag == "Evidence")
         {
