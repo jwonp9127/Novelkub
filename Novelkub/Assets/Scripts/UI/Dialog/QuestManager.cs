@@ -32,7 +32,7 @@ public class QuestManager : MonoBehaviour
                 new int[] { (int)ObjectNum.NPC2, (int)ObjectNum.NPC2 }));
 		_questDate.Add((int)QuestNum.Third,
 			new QuestData("지켜보고있다", new string[] { "건물주 할아버지를 통해 CCTV 확인하기", "건물주 할아버지를 통해 CCTV 확인하기", "피자가게 직원과 대화하기" },
-				new int[] { (int)ObjectNum.Object1, (int)ObjectNum.NPC3, (int)ObjectNum.NPC3 }));
+				new int[] { (int)ObjectNum.InteractableObject1, (int)ObjectNum.NPC3, (int)ObjectNum.NPC3 }));
 		_questDate.Add((int)QuestNum.Forth,
 			new QuestData("수상한 그림자", new string[] { "피자가게 직원과 대화하기", "피자가게 직원이 얘기한 노숙자를 찾아 대화하기" },
 				new int[] { (int)ObjectNum.NPC4, (int)ObjectNum.NPC4 }));

@@ -93,7 +93,7 @@ public class Player : MonoBehaviour
             Debug.Log("NPC 충돌");
             //_nearObject
         }
-        else if (other.tag == "Evidence")
+        else if (other.tag == "InteractableObject")
         {
             _nearObject = other.gameObject;
             Debug.Log("Evidence 충돌");
@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.tag == "NPC" || other.tag == "Evidence")
+        if (other.tag == "NPC" || other.tag == "InteractableObject")
         {
             _nearObject = null;
         }

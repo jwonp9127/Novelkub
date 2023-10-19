@@ -41,10 +41,10 @@ public class InteractionManager : MonoBehaviour
     {
         scanObject = obj;
         ObjectData scanObjectData = scanObject.GetComponent<ObjectData>();
-        Dialog(scanObjectData.objectId, scanObjectData.isNPC);
+        Dialog(scanObjectData.objectId, scanObjectData.withQuest);
     }
 
-    private void Dialog(int objectId, bool isNPC)
+    private void Dialog(int objectId, bool withQuest)
     {
         int questDialogIndex = QuestManager.GetQuestDialogIndex();
         string dialogData = DialogManager.GetDialog(objectId + questDialogIndex, dialogIndex, out dialogObject);
@@ -57,7 +57,7 @@ public class InteractionManager : MonoBehaviour
             return;
         }
         
-        if (isNPC)
+        if (withQuest)
         {
             dialogText.text = dialogData;
 
