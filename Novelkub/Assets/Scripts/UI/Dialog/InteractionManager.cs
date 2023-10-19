@@ -128,21 +128,21 @@ public class InteractionManager : MonoBehaviour
         dialogName.text = dName;
     }
 
-    public void CheckAddItem(int questid, int npcIndex, int talkIndex)
-    {
-        // for (int i = 0; i < 2; i++)
-        // {
-        //     if (questid == DialogManager._QuestItem[i, 0] && npcIndex == DialogManager._QuestItem[i, 1] && talkIndex == DialogManager._QuestItem[i, 2])
-        //     {
-        //         Inventory.instance.AddItem(DialogManager.QuestItemDatas[DialogManager._QuestItem[i, 3]]);
-        //         Debug.Log(DialogManager._QuestItem[i, 3] + "ADD인벤토리하기");
-        //     }
-        // }
-    }
+    //public void CheckAddItem(int Questid, int npcIdex, int talkIndex)
+    //{
+    //    for (int i = 0; i < 2; i++)
+    //    {
+    //        if (Questid == DialogManager._QuestItem[i, 0] && npcIdex == DialogManager._QuestItem[i, 1] && talkIndex == DialogManager._QuestItem[i, 2])
+    //        {
+    //            Inventory.instance.AddItem(DialogManager.QuestItemDatas[DialogManager._QuestItem[i, 3]]);
+    //            Debug.Log(DialogManager._QuestItem[i, 3] + "ADD인벤토리하기");
+    //        }
+    //    }
+    //}
 
     public void CheckMiniGame(int questid, int npcIndex, int talkIndex)
     {
-        for (int i = 0; i < 6; i++) //이거 2라고 써있는 것은 바꿔야 한당.
+        for (int i = 0; i < 2; i++) //이거 2라고 써있는 것은 바꿔야 한당.
         {
             // if (Questid == DialogManager._MiniGame[i, 0] && npcIndex == DialogManager._MiniGame[i, 1] && talkIndex == DialogManager._MiniGame[i, 2])
             // {
@@ -161,7 +161,6 @@ public class InteractionManager : MonoBehaviour
             //
             //     //Debug.Log(DialogManager._QuestItem[i, 3] + "ADD인벤토리하기");
             // }
-
         }
     }
 

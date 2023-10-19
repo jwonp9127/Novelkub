@@ -29,7 +29,10 @@ public class Player : MonoBehaviour
 
     private PlayerStateMachine stateMachine;
 
-    private void Awake()
+    private int DestroyTrashCount = 0;
+
+
+	private void Awake()
     {
         AnimationData.Initialize();
         Rigidbody = GetComponent<Rigidbody>();
@@ -70,7 +73,17 @@ public class Player : MonoBehaviour
             {
                 TimelineManager.Take2();
             }
-            else
+			else if (_nearObject.CompareTag("Trash"))
+			{
+                Destroy(_nearObject);
+                DestroyTrashCount++;
+                if(DestroyTrashCount == 7)
+                {
+					InteractionManager.FinishMiniGame();
+				}
+				Debug.Log("쓰레기를 치워따");
+			}
+			else
             {
                 InteractionManager.Interaction(_nearObject);
                 Debug.Log("NPC 상호작용");               
@@ -93,10 +106,10 @@ public class Player : MonoBehaviour
             Debug.Log("NPC 충돌");
             //_nearObject
         }
-        else if (other.tag == "InteractableObject")
+        else if (other.tag == "Trash")
         {
             _nearObject = other.gameObject;
-            Debug.Log("Evidence 충돌");
+            Debug.Log("Trash 충돌");
         }
         else if (other.tag == "TimeLine")
         {
@@ -107,7 +120,7 @@ public class Player : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.tag == "NPC" || other.tag == "InteractableObject")
+        if (other.tag == "NPC" || other.tag == "Trash")
         {
             _nearObject = null;
         }
