@@ -61,7 +61,7 @@ public class InteractionManager : MonoBehaviour
         int questDialogIndex = QuestManager.GetQuestDialogIndex();
         string dialogData = DialogManager.GetDialog(objectId + questDialogIndex, dialogIndex, out dialogObject);
          CheckAddItem(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
-        // CheckMiniGame(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
+         CheckMiniGame(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
         if (DialogManager.IsMiniGame)
         {
             Debug.Log("이곳은 못가");
@@ -144,23 +144,30 @@ public class InteractionManager : MonoBehaviour
     {
         for (int i = 0; i < 2; i++) //이거 2라고 써있는 것은 바꿔야 한당.
         {
-            // if (Questid == DialogManager._MiniGame[i, 0] && npcIndex == DialogManager._MiniGame[i, 1] && talkIndex == DialogManager._MiniGame[i, 2])
-            // {
-            //     DialogManager.IsMiniGame = true;
-            //     switch (i)
-            //     {
-            //         case (int)QuestMiniGame.First:
-            //             OnMiniGame("경찰에게 받은 단서 ", "첫 미니게임 내용 첫 미니게임 내용 첫 미니게임 내용 첫 미니게임 내용 첫 미니게임 내용");
-            //             break;
-            //         case (int)QuestMiniGame.Second:
-            //             OnMiniGame("두 번쨰 미니게임", "두번째 미니게임 내용");
-            //             break;
-            //         case 2:
-            //             break;
-            //     }
-            //
-            //     //Debug.Log(DialogManager._QuestItem[i, 3] + "ADD인벤토리하기");
-            // }
+            if (questid == DialogManager._MiniGame[i, 0] && npcIndex == DialogManager._MiniGame[i, 1] && talkIndex == DialogManager._MiniGame[i, 2])
+            {
+                DialogManager.IsMiniGame = true;
+                switch (i)
+                {
+                    case (int)QuestMiniGame.First:
+                        OnMiniGame("경찰에게 받은 단서 ", "첫 미니게임 내용 첫 미니게임 내용 첫 미니게임 내용 첫 미니게임 내용 첫 미니게임 내용");
+                        break;
+                    case (int)QuestMiniGame.Second:
+                        OnMiniGame("두 번쨰 미니게임", "두번째 미니게임 내용");
+                        break;
+                    case 2:
+                        break;
+                }
+
+                //Debug.Log(DialogManager._QuestItem[i, 3] + "ADD인벤토리하기");
+            }
+        }
+    }
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            FinishMiniGame();
         }
     }
 
