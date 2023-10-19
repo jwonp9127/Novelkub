@@ -70,7 +70,13 @@ public class Player : MonoBehaviour
             {
                 TimelineManager.Take2();
             }
-            else
+			else if (_nearObject.CompareTag("Trash"))
+			{
+                Destroy(_nearObject);
+                //DestroyTrashCount++;
+				Debug.Log("쓰레기를 치워따");
+			}
+			else
             {
                 InteractionManager.Interaction(_nearObject);
                 Debug.Log("NPC 상호작용");               
@@ -93,10 +99,10 @@ public class Player : MonoBehaviour
             Debug.Log("NPC 충돌");
             //_nearObject
         }
-        else if (other.tag == "Evidence")
+        else if (other.tag == "Trash")
         {
             _nearObject = other.gameObject;
-            Debug.Log("Evidence 충돌");
+            Debug.Log("Trash 충돌");
         }
         else if (other.tag == "TimeLine")
         {
@@ -107,7 +113,7 @@ public class Player : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.tag == "NPC" || other.tag == "Evidence")
+        if (other.tag == "NPC" || other.tag == "Trash")
         {
             _nearObject = null;
         }
