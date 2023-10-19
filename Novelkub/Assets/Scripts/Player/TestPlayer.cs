@@ -29,11 +29,11 @@ public class TestPlayer : MonoBehaviour
         {
             if (_nearObject.name == "Take1StartArea")
             {
-               // timelineManager.Take1();
+                timelineManager.Take1();
             }
             else if (_nearObject.name == "Take2StartArea")
             {
-               // timelineManager.Take2();
+                timelineManager.Take2();
             }
             else
             {
