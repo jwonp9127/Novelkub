@@ -60,7 +60,7 @@ public class InteractionManager : MonoBehaviour
     {
         int questDialogIndex = QuestManager.GetQuestDialogIndex();
         string dialogData = DialogManager.GetDialog(objectId + questDialogIndex, dialogIndex, out dialogObject);
-        CheckAddItem(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
+        //CheckAddItem(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
         CheckMiniGame(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
         if (DialogManager.IsMiniGame)
         {
@@ -128,21 +128,21 @@ public class InteractionManager : MonoBehaviour
         dialogName.text = dName;
     }
 
-    public void CheckAddItem(int Questid, int npcIdex, int talkIndex)
-    {
-        for (int i = 0; i < 2; i++)
-        {
-            if (Questid == DialogManager._QuestItem[i, 0] && npcIdex == DialogManager._QuestItem[i, 1] && talkIndex == DialogManager._QuestItem[i, 2])
-            {
-                Inventory.instance.AddItem(DialogManager.QuestItemDatas[DialogManager._QuestItem[i, 3]]);
-                Debug.Log(DialogManager._QuestItem[i, 3] + "ADD인벤토리하기");
-            }
-        }
-    }
+    //public void CheckAddItem(int Questid, int npcIdex, int talkIndex)
+    //{
+    //    for (int i = 0; i < 2; i++)
+    //    {
+    //        if (Questid == DialogManager._QuestItem[i, 0] && npcIdex == DialogManager._QuestItem[i, 1] && talkIndex == DialogManager._QuestItem[i, 2])
+    //        {
+    //            Inventory.instance.AddItem(DialogManager.QuestItemDatas[DialogManager._QuestItem[i, 3]]);
+    //            Debug.Log(DialogManager._QuestItem[i, 3] + "ADD인벤토리하기");
+    //        }
+    //    }
+    //}
 
     public void CheckMiniGame(int Questid, int npcIdex, int talkIndex)
     {
-        for (int i = 0; i < 6; i++) //이거 2라고 써있는 것은 바꿔야 한당.
+        for (int i = 0; i < 2; i++) //이거 2라고 써있는 것은 바꿔야 한당.
         {
             if (Questid == DialogManager._MiniGame[i, 0] && npcIdex == DialogManager._MiniGame[i, 1] && talkIndex == DialogManager._MiniGame[i, 2])
             {
@@ -150,10 +150,10 @@ public class InteractionManager : MonoBehaviour
                 switch (i)
                 {
                     case (int)QuestMiniGame.First:
-                        OnMiniGame("경찰에게 받은 단서 ", "첫 미니게임 내용 첫 미니게임 내용 첫 미니게임 내용 첫 미니게임 내용 첫 미니게임 내용");
+                        OnMiniGame("쓰레기를 치우자 ", "근처의 쓰레기 7개를 치워주세요");
                         break;
                     case (int)QuestMiniGame.Second:
-                        OnMiniGame("두 번쨰 미니게임", "두번째 미니게임 내용");
+                        OnMiniGame("쓰레기를 치우자 ", "근처의 쓰레기 7개를 치워주세요");
                         break;
                     case 2:
                         break;

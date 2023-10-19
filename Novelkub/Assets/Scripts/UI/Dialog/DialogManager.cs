@@ -19,8 +19,8 @@ public class DialogManager : MonoBehaviour
         _dialogData = new Dictionary<int, string[]>();
         GenerateDialogData();
         GenerateQuestDialogData();
-        _MiniGame = new int[2, 4] { { 1100, 0, 11, 2 }, { 2200, 0, 5, 3 } }; // 어는 부분에 미니게임을 시작할지 넣는 부분
-        _QuestItem = new int[2, 4] { { (int)ObjectNum.NPC1 + (int)QuestNum.First, 0, 11, 0 }, { (int)ObjectNum.NPC2 + (int)QuestNum.Second, 0, 5, 3 } };
+        _MiniGame = new int[2, 4] { { 3301, 0, 5, 2 }, { 4400, 0, 5, 3 } }; // 어는 부분에 미니게임을 시작할지 넣는 부분
+        //_QuestItem = new int[2, 4] { { (int)ObjectNum.NPC1 + (int)QuestNum.First, 0, 11, 0 }, { (int)ObjectNum.NPC2 + (int)QuestNum.Second, 0, 5, 3 } };
     }
 
     private void GenerateDialogData()

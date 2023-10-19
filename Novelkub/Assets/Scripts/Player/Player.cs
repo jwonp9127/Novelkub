@@ -29,7 +29,10 @@ public class Player : MonoBehaviour
 
     private PlayerStateMachine stateMachine;
 
-    private void Awake()
+    private int DestroyTrashCount = 0;
+
+
+	private void Awake()
     {
         AnimationData.Initialize();
         Rigidbody = GetComponent<Rigidbody>();
@@ -73,7 +76,11 @@ public class Player : MonoBehaviour
 			else if (_nearObject.CompareTag("Trash"))
 			{
                 Destroy(_nearObject);
-                //DestroyTrashCount++;
+                DestroyTrashCount++;
+                if(DestroyTrashCount == 7)
+                {
+					InteractionManager.FinishMiniGame();
+				}
 				Debug.Log("쓰레기를 치워따");
 			}
 			else
