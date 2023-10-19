@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1221948222417464914}
   - component: {fileID: 3969737022243540019}
   m_Layer: 5
-  m_Name: Name
+  m_Name: NameUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -246,7 +246,7 @@ RectTransform:
   m_Children:
   - {fileID: 2410396202410763208}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
