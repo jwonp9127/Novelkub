@@ -249,10 +249,7 @@ public class Police : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
-            Debug.Log(collider.transform.position);
-
-            collider.transform.position = spwamPosition.position;
-            Debug.Log(collider.transform.position);
+            player.Teleport(spwamPosition.position);
 
         }
 
