@@ -1,23 +1,22 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class InteractionManager : MonoBehaviour
 {
     public DialogManager DialogManager { get; private set; }
     public QuestManager QuestManager { get; private set; }
-    
+
     [Header("DialogUI")]
     public GameObject dialogUI;
-	public GameObject nameUI;
-	public TMP_Text dialogName;
+    public GameObject nameUI;
+    public TMP_Text dialogName;
     public TMP_Text dialogText;
 
-	[Header("QuestInfoUI")]
+    [Header("QuestInfoUI")]
     public GameObject questInfoUI;
     public TMP_Text questNameText;
     public TMP_Text questInfoText;
-    
+
     [Header("Etc")]
     public GameObject scanObject;
     public string dialogObject;
@@ -28,11 +27,11 @@ public class InteractionManager : MonoBehaviour
     public GameObject miniGameUI;
     public TMP_Text miniGameNameText;
     public TMP_Text miniGameText;
-   // public bool IsMiniGame;
-   
+    // public bool IsMiniGame;
+
     public static InteractionManager instance;
 
-   
+
     private void Awake()
     {
         instance = this;
@@ -55,7 +54,7 @@ public class InteractionManager : MonoBehaviour
         ObjectData scanObjectData = scanObject.GetComponent<ObjectData>();
         Dialog(scanObjectData.objectId, scanObjectData.withQuest);
     }
-
+    
     private void Dialog(int objectId, bool withQuest)
     {
         if (DialogManager.IsMiniGame)
@@ -67,11 +66,14 @@ public class InteractionManager : MonoBehaviour
             DialogManager.IsMiniGame = !DialogManager.IsMiniGame;
             return;
         }
+
+
         int questDialogIndex = QuestManager.GetQuestDialogIndex();
         string dialogData = DialogManager.GetDialog(objectId + questDialogIndex, dialogIndex, out dialogObject);
-         CheckAddItem(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
-         CheckMiniGame(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
-        
+        CheckAddItem(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
+        CheckMiniGame(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
+
+
         if (dialogData == null)
         {
             QuestManager.CheckQuest(objectId);
@@ -79,7 +81,7 @@ public class InteractionManager : MonoBehaviour
             ExitDialog(out dialogIndex);
             return;
         }
-        
+
         if (withQuest)
         {
             dialogText.text = dialogData;
@@ -90,10 +92,13 @@ public class InteractionManager : MonoBehaviour
         {
             dialogText.text = dialogData;
 
-			nameUI.SetActive(false);
-		}
+            nameUI.SetActive(false);
+        }
         OnDialog();
-        dialogIndex++;
+        if (!DialogManager.IsMiniGame)
+        {
+            dialogIndex++;
+        }
     }
 
     private void OnDialog()
@@ -143,7 +148,7 @@ public class InteractionManager : MonoBehaviour
 
     public void CheckMiniGame(int questid, int npcIndex, int talkIndex)
     {
-        for (int i = 0; i < 2; i++) //이거 2라고 써있는 것은 바꿔야 한당.
+        for (int i = 0; i <4; i++) //이거 2라고 써있는 것은 바꿔야 한당.
         {
             if (questid == DialogManager._MiniGame[i, 0] && npcIndex == DialogManager._MiniGame[i, 1] && talkIndex == DialogManager._MiniGame[i, 2])
             {
@@ -156,7 +161,11 @@ public class InteractionManager : MonoBehaviour
                     case (int)QuestMiniGame.Second:
                         OnMiniGame("두 번쨰 미니게임", "두번째 미니게임 내용");
                         break;
-                    case 2:
+                    case (int)QuestMiniGame.Third:
+                        OnMiniGame("세 번쨰 미니게임", "세번째 미니게임 내용");
+                        break;
+                    case (int)QuestMiniGame.Forth:
+                        OnMiniGame("네 번쨰 미니게임", "네번째 미니게임 내용");
                         break;
                 }
 

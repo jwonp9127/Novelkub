@@ -95,7 +95,7 @@ public class Player : MonoBehaviour
     {
         if (InteractionManager.isAction)
         {
-            InteractionManager.ExitDialog(out InteractionManager.dialogIndex);
+          //InteractionManager.ExitDialog(out InteractionManager.dialogIndex);
         }
     }
     public void OnTriggerEnter(Collider other)
