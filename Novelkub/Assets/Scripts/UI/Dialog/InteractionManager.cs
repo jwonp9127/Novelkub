@@ -59,6 +59,24 @@ public class InteractionManager : MonoBehaviour
     
     private void Dialog(int objectId, bool withQuest)
     {
+        //if (DialogManager.IsMiniGame)
+        //{
+        //    Debug.Log("이곳은 못가");
+        //    dialogText.text = "퀘스트를 먼저 진행해주세요";
+        //    //ExitDialog(out dialogIndex);
+        //    dialogUI.SetActive(DialogManager.IsMiniGame);
+        //    DialogManager.IsMiniGame = !DialogManager.IsMiniGame;
+        //    return;
+        //}
+
+
+        int questDialogIndex = QuestManager.GetQuestDialogIndex();
+        string dialogData = DialogManager.GetDialog(objectId + questDialogIndex, dialogIndex, out dialogObject);
+        Debug.Log(objectId + questDialogIndex);
+        Debug.Log(dialogIndex);
+
+        CheckAddItem(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
+        CheckMiniGame(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
         if (DialogManager.IsMiniGame)
         {
             Debug.Log("이곳은 못가");
@@ -68,12 +86,6 @@ public class InteractionManager : MonoBehaviour
             DialogManager.IsMiniGame = !DialogManager.IsMiniGame;
             return;
         }
-
-
-        int questDialogIndex = QuestManager.GetQuestDialogIndex();
-        string dialogData = DialogManager.GetDialog(objectId + questDialogIndex, dialogIndex, out dialogObject);
-        CheckAddItem(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
-        CheckMiniGame(objectId + questDialogIndex, QuestManager.questActionIndex, dialogIndex);
 
 
         if (dialogData == null)
@@ -140,20 +152,27 @@ public class InteractionManager : MonoBehaviour
     {
         for (int i = 0; i < 7; i++)
         {
-            if (Questid == DialogManager._QuestItem[i, 0] && npcIdex == DialogManager._QuestItem[i, 1] && talkIndex == DialogManager._QuestItem[i, 2])
+            if (Questid == DialogManager._QuestItem[i, 0]  && talkIndex == DialogManager._QuestItem[i, 2])
             {
                 Inventory.instance.AddItem(DialogManager.QuestItemDatas[DialogManager._QuestItem[i, 3]]);
                 Debug.Log(DialogManager._QuestItem[i, 3] + "ADD인벤토리하기");
             }
         }
     }
-
+    //&& npcIdex == DialogManager._QuestItem[i, 1]
     public void CheckMiniGame(int questid, int npcIndex, int talkIndex)
     {
         for (int i = 0; i <4; i++) //이거 2라고 써있는 것은 바꿔야 한당.
         {
-            if (questid == DialogManager._MiniGame[i, 0] && npcIndex == DialogManager._MiniGame[i, 1] && talkIndex == DialogManager._MiniGame[i, 2])
+            if (questid == DialogManager._MiniGame[i, 0]  && talkIndex == DialogManager._MiniGame[i, 2])
             {
+                Debug.Log(DialogManager._MiniGame[i, 0]);
+                Debug.Log("캐릭터 인데스" + npcIndex);
+                Debug.Log(DialogManager._MiniGame[i, 1]);
+                Debug.Log(talkIndex);
+                Debug.Log(DialogManager._MiniGame[i, 2]);
+
+                Debug.Log("시작");
                 DialogManager.IsMiniGame = true;
                 switch (i)
                 {
