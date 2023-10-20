@@ -158,16 +158,16 @@ public class InteractionManager : MonoBehaviour
                 switch (i)
                 {
                     case (int)QuestMiniGame.First:
-                        OnMiniGame("경찰에게 받은 단서 ", "첫 미니게임 내용 첫 미니게임 내용 첫 미니게임 내용 첫 미니게임 내용 첫 미니게임 내용");
+                        OnMiniGame("중식당 사장", "중식당 사장을 도와 식당을 도와주자");
                         break;
                     case (int)QuestMiniGame.Second:
-                        OnMiniGame("두 번쨰 미니게임", "두번째 미니게임 내용");
+                        OnMiniGame("할아버지", "쓰레기 도와주기");
                         break;
                     case (int)QuestMiniGame.Third:
-                        OnMiniGame("세 번쨰 미니게임", "세번째 미니게임 내용");
+                        OnMiniGame("피자가게", "피자가게 도와주기");
                         break;
                     case (int)QuestMiniGame.Forth:
-                        OnMiniGame("네 번쨰 미니게임", "네번째 미니게임 내용");
+                        OnMiniGame("노숙자 도와주기", "노숙자의 마약 찾아주기");
                         break;
                 }
 

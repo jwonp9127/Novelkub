@@ -10,10 +10,12 @@ public class Nosook : MonoBehaviour
     public Transform NosookPosition;
     public bool isMove;
     Animator animator;
+    private Collider collider;
+    public GameObject InPotal;
     // Start is called before the first frame update
     void Start()
     {
-
+        collider = InPotal.GetComponent<Collider>();
         // mySelf.transform.position = Vector3.MoveTowards(start, nextPosition, 1);
         animator = GetComponentInChildren<Animator>();
 
@@ -35,6 +37,10 @@ public class Nosook : MonoBehaviour
         }
     }
 
+    public void OnPotal()
+    {
+        collider.enabled = true;
+    }
     void MoveOn()
     {
         if (isMove)
@@ -44,6 +50,7 @@ public class Nosook : MonoBehaviour
             if (transform.position == NosookPosition.position)
             {
                 animator.SetBool("Idle", true);
+                OnPotal();
                 SpwanManager.Instance.OnMayac();
             }
         }
