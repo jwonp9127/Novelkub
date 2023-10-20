@@ -5,6 +5,8 @@ public class QuestManager : MonoBehaviour
 {
     public int questId;
     public int questActionIndex;
+    public GameObject manager;
+    public TimelineManager timelineManager;
 
     public string QuestName { get; private set; }
     public string QuestInfo { get; private set; }
@@ -13,6 +15,7 @@ public class QuestManager : MonoBehaviour
 
     private void Awake()
     {
+        timelineManager = manager.GetComponent<TimelineManager>();
         _questDate = new Dictionary<int, QuestData>();
         GenerateData();
     }
@@ -57,6 +60,10 @@ public class QuestManager : MonoBehaviour
         if (id == _questDate[questId].NpcId[questActionIndex])
         {
             QuestInfo = GetQuestInfo();
+            if (QuestInfo == "Clear!")
+            {
+                timelineManager.Ending();
+            }
             questActionIndex++;
         }
         if (questActionIndex == _questDate[questId].NpcId.Length)
