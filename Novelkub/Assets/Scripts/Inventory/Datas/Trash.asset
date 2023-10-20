@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60845cf290990cf46b9d191c99e292e1, type: 3}
   m_Name: Trash
   m_EditorClassIdentifier: 
-  itemNum: 0
+  itemNum: 7
   displayName: 
   description: 
   type: 1

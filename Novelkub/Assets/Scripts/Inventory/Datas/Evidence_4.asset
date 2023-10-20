@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60845cf290990cf46b9d191c99e292e1, type: 3}
   m_Name: Evidence_4
   m_EditorClassIdentifier: 
-  itemNum: 4
+  itemNum: 3
   displayName: "\uB124\uBC88\uC9F8 \uB2E8\uC11C"
   description: "\uD53C\uC790\uAC00\uAC8C \uC9C1\uC6D0 \\n \\n \uC0AC\uAC74\uB2F9\uC77C
     \\n 22\uC2DC 30\uBD84\uACBD\uC5D0 \\n \uC790\uC8FC \uBCF4\uC774\uB358 \\n \uB178\uC219\uC790\uAC00
