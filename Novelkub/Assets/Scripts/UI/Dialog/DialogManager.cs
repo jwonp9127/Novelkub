@@ -20,7 +20,7 @@ public class DialogManager : MonoBehaviour
         GenerateDialogData();
         GenerateQuestDialogData();
         _QuestItem  = new int[8, 4] { { (int)ObjectNum.NPC1 + (int)QuestNum.First, 0, 13, 0 }, { (int)ObjectNum.NPC2 + (int)QuestNum.Second, 0, 5, 1 }, { (int)ObjectNum.NPC2 + (int)QuestNum.Second + 1, 0, 10, 2 }, { (int)ObjectNum.InteractableObject1 + (int)QuestNum.Third, 0, 4,3 }, { (int)ObjectNum.NPC3 + (int)QuestNum.Third + 2, 0, 5, 4 }, { (int)ObjectNum.NPC4 + (int)QuestNum.Forth + 1, 0, 10, 5 }, { (int)ObjectNum.NPC6 + (int)QuestNum.Sixth + 1, 0, 8, 6 }, { (int)ObjectNum.NPC7 + (int)QuestNum.Seventh + 1, 0, 4, 7 } }; // 어는 부분에 미니게임을 시작할지 넣는 부분
-        _MiniGame = new int[5, 3] { { 2200, 0, 4 }, { (int)ObjectNum.NPC3 + (int)QuestNum.Third , 0, 5 }, { (int)ObjectNum.NPC4 + (int)QuestNum.Forth, 0, 8 }, { (int)ObjectNum.NPC5 + (int)QuestNum.Fifth, 0, 7 }, { (int)ObjectNum.NPC5 + (int)QuestNum.Fifth + 1, 0, 10 } };
+        _MiniGame = new int[5, 3] { { 2200, 0, 5 }, { (int)ObjectNum.NPC3 + (int)QuestNum.Third + 1 , 0, 4 }, { 5500, 0, 7 }, { (int)ObjectNum.NPC5 + (int)QuestNum.Fifth, 0, 7 }, { (int)ObjectNum.NPC5 + (int)QuestNum.Fifth + 1, 0, 10 } };
     }
 
     private void GenerateDialogData()
@@ -60,7 +60,8 @@ public class DialogManager : MonoBehaviour
 									   "어제 발생한 살인사건을 조사하고 있는 사설탐정입니다.:0",
 									   "탐정 양반이 여긴 무슨일로 왔수?:1",
 									   "혹시 어제 22시에서 23시 사이에 호텔 근처에서 \n수상한 사람이나 수상한 물건같은거 보신적 있으십니까?.:0",
-									   "글쎄.. 본 것 같기도 하고 아닌거 같기도 하고.. \n일 좀 도와주면 생각날거 같기도 한데...:1"});
+									   "글쎄.. 본 것 같기도 하고 아닌거 같기도 하고.. \n일 좀 도와주면 생각날거 같기도 한데...:1",
+						               });
 		//미니게임 구현
 		_dialogData.Add((int)ObjectNum.NPC2 + (int)QuestNum.Second +1,
 						new string[] { "탐정양반.. 우리 가게에서 일해볼 생각 없는가?.:1",
