@@ -25,14 +25,28 @@ Novel + Rumikub = NovelKub<br/>
 
 # 2️⃣ 주요 기능 및 게임 엿보기
 
+![image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F83c75a39-3aba-4ba4-a792-7aefe4b07895%2Fb9b9a2e1-39a8-4795-be75-15218327db2a%2FUntitled.png?table=block&id=53747720-73b2-48fe-a102-8068098ec555&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=2000&userId=ebb7fbff-4b26-4ecd-93fe-20e186c11681&cache=v2)
 
 
+![image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F83c75a39-3aba-4ba4-a792-7aefe4b07895%2F1c79adc6-01c5-41f7-bc03-e2c71aae46d6%2FUntitled.png?table=block&id=29d95882-7332-46f4-8727-64c3b4d8ae68&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=2000&userId=ebb7fbff-4b26-4ecd-93fe-20e186c11681&cache=v2)
 
 
-### 게임 소개 패널, 메인 진입 기능
+![image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F83c75a39-3aba-4ba4-a792-7aefe4b07895%2F6fab9da8-bd35-4b22-ba8f-1bf12078f2b9%2FUntitled.png?table=block&id=0f5b264b-1644-4353-ada1-e969249cf059&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=2000&userId=ebb7fbff-4b26-4ecd-93fe-20e186c11681&cache=v2)
 
 
+![image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F83c75a39-3aba-4ba4-a792-7aefe4b07895%2F99e812b7-f91e-4e85-b47e-99d8619b9f00%2FUntitled.png?table=block&id=053e9a23-7c20-49f9-a49a-98b4681b23b5&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=2000&userId=ebb7fbff-4b26-4ecd-93fe-20e186c11681&cache=v2)
 
+
+![image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F83c75a39-3aba-4ba4-a792-7aefe4b07895%2Fe581ca6d-214e-47bc-8901-6502e0d4fc46%2FUntitled.png?table=block&id=30a0c89f-5783-4e71-9fe9-0c1846035e86&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=2000&userId=ebb7fbff-4b26-4ecd-93fe-20e186c11681&cache=v2)
+
+
+![image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F83c75a39-3aba-4ba4-a792-7aefe4b07895%2F27fd78e5-7d68-4a04-9069-8a82b44b9650%2FUntitled.png?table=block&id=2752114f-4223-4711-9bf1-61c7b4a5f3af&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=2000&userId=ebb7fbff-4b26-4ecd-93fe-20e186c11681&cache=v2)
+
+
+![image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F83c75a39-3aba-4ba4-a792-7aefe4b07895%2Fa2e23434-9849-497a-bb0d-ffc1ee07a8bc%2FUntitled.png?table=block&id=802086ed-d7a4-4eba-b467-d8a288152364&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=2000&userId=ebb7fbff-4b26-4ecd-93fe-20e186c11681&cache=v2)
+
+
+![image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F83c75a39-3aba-4ba4-a792-7aefe4b07895%2Fc9a238bd-b18a-49d8-b3bc-1caae6384246%2FUntitled.png?table=block&id=72a6c4af-7db8-492e-8461-06ab7960cdc3&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=2000&userId=ebb7fbff-4b26-4ecd-93fe-20e186c11681&cache=v2)
 
 
 
