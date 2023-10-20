@@ -14662,6 +14662,7 @@ MonoBehaviour:
   - {fileID: 1126767673}
   - {fileID: 665128704}
   - {fileID: 1483197703}
+  isOpenInven: 0
   inventoryInfo: {fileID: 1373153241}
   selectedItemName: {fileID: 780583167}
   selectedItemDescription: {fileID: 589928973}
