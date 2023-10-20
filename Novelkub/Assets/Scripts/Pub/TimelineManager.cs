@@ -15,24 +15,20 @@ public class TimelineManager : MonoBehaviour
     public GameObject take1StartArea;
     public GameObject take2StartArea;
     public GameObject soundMain;
-    public GameObject soundEnding;
     
     public bool take1IsEnd;
     public bool take2IsEnd;
-    public bool endingEnd;
 
     private void Start()
     {
         take1IsEnd = false;
         take2IsEnd = false;
-        endingEnd = false;
         
         take1StartArea.SetActive(false);
         take2StartArea.SetActive(false);
         
         take1Director.gameObject.SetActive(false);
         ending.gameObject.SetActive(false);
-        soundEnding.SetActive(false);
     }
 
     public void Take1()
@@ -54,7 +50,6 @@ public class TimelineManager : MonoBehaviour
         ending.gameObject.SetActive(true);
         ending.Play();
         soundMain.SetActive(false);
-        soundEnding.SetActive(true);
     }
 
     public void Take1End()
@@ -68,11 +63,5 @@ public class TimelineManager : MonoBehaviour
     {
         take2Director.gameObject.SetActive(false);
         take2IsEnd = true;
-    }
-
-    public void EndingEnd()
-    {
-        ending.gameObject.SetActive(false);
-        endingEnd = true;
     }
 }
