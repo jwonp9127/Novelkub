@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Evidence_3
   m_EditorClassIdentifier: 
   itemNum: 2
-  displayName: "\uC138\uBC88\uC9F8 \uB2E8\uC11C"
-  description: "\uAC74\uBB3C\uC8FC\uC778 \\n \\n \uC0AC\uAC74\uB2F9\uC77C \\n 22\uC2DC
-    30\uBD84\uACBD\uC5D0 \\n \uC218\uC0C1\uD55C \uC778\uBB3C\uC774 \\n \uD638\uD154\uC5D0\uC11C
-    \uB098\uC640 \\n \uD53C\uC790\uAC00\uAC8C\uB85C \\n \uB4E4\uC5B4\uAC00\uB294
-    \uC601\uC0C1 \\n \uD655\uBCF4 \\n \\n \uD53C\uC790\uAC00\uAC8C \uC870\uC0AC"
+  displayName: "[\uC138\uBC88\uC9F8 \uB2E8\uC11C]"
+  description: "\uAC74\uBB3C\uC8FC\uC778         \uC0AC\uAC74\uB2F9\uC77C 22\uC2DC
+    30\uBD84    \uC218\uC0C1\uD55C \uC778\uBB3C\uC774     \uD53C\uC790\uAC00\uAC8C\uB85C      
+    \uB4E4\uC5B4\uAC00\uB294 \uC601\uC0C1 \uD655\uBCF4   \uD53C\uC790\uAC00\uAC8C
+    \uC870\uC0AC"
   type: 0
   icon: {fileID: 21300000, guid: 663c37bfd647edc49baa190990b4b3ad, type: 3}
   dropPrefab: {fileID: 0}
