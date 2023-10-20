@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -52,6 +54,55 @@ public class Player : MonoBehaviour
         stateMachine.ChangeState(stateMachine.IdleState);
         Input.PlayerActions.Interaction.started += OnInteractionStarted;
         Input.PlayerActions.Cancel.started += OnCancelStarted;
+        Input.PlayerActions.OneInvne.started += OneInvne_started;
+        Input.PlayerActions.TwoInven.started += TwoInven_started;
+        Input.PlayerActions.ThreeInven.started += ThreeInven_started;
+        Input.PlayerActions.FourInven.started += FourInven_started;
+        Input.PlayerActions.FiveInven.started += FiveInven_started;
+        Input.PlayerActions.SixInven.started += SixInven_started;
+        Input.PlayerActions.SevenInven.started += SevenInven_started;
+        Input.PlayerActions.EightInven.started += EightInven_started;
+    }
+
+    private void EightInven_started(InputAction.CallbackContext obj)
+    {
+        Inventory.instance.SelectItem(7);
+    }
+
+    private void SevenInven_started(InputAction.CallbackContext obj)
+    {
+        Inventory.instance.SelectItem(6);
+    }
+
+    private void SixInven_started(InputAction.CallbackContext obj)
+    {
+        Inventory.instance.SelectItem(5);
+    }
+
+    private void FiveInven_started(InputAction.CallbackContext obj)
+    {
+        Inventory.instance.SelectItem(4);
+    }
+
+    private void FourInven_started(InputAction.CallbackContext obj)
+    {
+        Inventory.instance.SelectItem(3);
+    }
+
+    private void ThreeInven_started(InputAction.CallbackContext obj)
+    {
+        Inventory.instance.SelectItem(2);
+    }
+
+    private void TwoInven_started(InputAction.CallbackContext obj)
+    {
+        Inventory.instance.SelectItem(1);
+    }
+
+    private void OneInvne_started(InputAction.CallbackContext obj)
+    {
+        Inventory.instance.SelectItem(0);
+        Debug.Log("가능가능");
     }
 
     public void Teleport(Vector3 spawnPosition)
@@ -95,9 +146,13 @@ public class Player : MonoBehaviour
     {
         if (InteractionManager.isAction)
         {
-          //InteractionManager.ExitDialog(out InteractionManager.dialogIndex);
+            InteractionManager.instance.dialogUI.SetActive(!InteractionManager.instance.isDialogObject);
+            InteractionManager.instance.isDialogObject = !InteractionManager.instance.isDialogObject;
+            //InteractionManager.ExitDialog(out InteractionManager.dialogIndex);
         }
     }
+
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.tag == "NPC")

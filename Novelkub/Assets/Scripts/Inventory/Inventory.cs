@@ -19,7 +19,7 @@ public class Inventory : MonoBehaviour
 {
     public ItemSlotUI[] uiSlots;
     public ItemSlot[] slots;
-
+    public bool isOpenInven;
 
     public GameObject inventoryInfo;
 
@@ -28,8 +28,8 @@ public class Inventory : MonoBehaviour
     private int selectedItemIndex;
     public TextMeshProUGUI selectedItemName;
     public TextMeshProUGUI selectedItemDescription;
-    public TextMeshProUGUI selectedItemStatNames;
-    public TextMeshProUGUI selectedItemStatValues;
+    //public TextMeshProUGUI selectedItemStatNames;
+   // public TextMeshProUGUI selectedItemStatValues;
     //public GameObject useButton;
     //public GameObject equipButton;
     //public GameObject unEquipButton;
@@ -45,6 +45,7 @@ public class Inventory : MonoBehaviour
 
     void Awake()
     {
+        isOpenInven = false;
         instance = this;
     }
     private void Start()
@@ -82,14 +83,23 @@ public class Inventory : MonoBehaviour
 
     public void SelectItem(int index)
     {
-        if (slots[index].item == null)
-            return;
-        inventoryInfo.SetActive(true); //일단 임시로 적어둠
-        selectedItem = slots[index];
+        if (!isOpenInven)
+        {
+            if (slots[index].item == null)
+                return;
+            inventoryInfo.SetActive(true); //일단 임시로 적어둠
+            selectedItem = slots[index];
+            selectedItemName.text = selectedItem.item.displayName;
+            selectedItemDescription.text = selectedItem.item.description;
+            isOpenInven = !isOpenInven;
+        }
         //selectedItemIndex = index;
+        else
+        {
+            ClearSeletecItemWindow();
+            isOpenInven = !isOpenInven;
+        }
 
-        //selectedItemName.text = selectedItem.item.displayName;
-        //selectedItemDescription.text = selectedItem.item.description;
 
         //selectedItemStatNames.text = string.Empty;
         //selectedItemStatValues.text = string.Empty;
@@ -102,17 +112,17 @@ public class Inventory : MonoBehaviour
         //useButton.SetActive(true);
 
         //dropButton.SetActive(true);
-        OnUseButton();
+        //OnUseButton();
     }
 
     private void ClearSeletecItemWindow()
     {
-        selectedItem = null;
+       // selectedItem = null;
         selectedItemName.text = string.Empty;
         selectedItemDescription.text = string.Empty;
 
-        selectedItemStatNames.text = string.Empty;
-        selectedItemStatValues.text = string.Empty;
+       // selectedItemStatNames.text = string.Empty;
+       // selectedItemStatValues.text = string.Empty;
         inventoryInfo.SetActive(false);
     }
 

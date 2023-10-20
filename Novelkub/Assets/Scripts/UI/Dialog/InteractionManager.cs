@@ -22,6 +22,7 @@ public class InteractionManager : MonoBehaviour
     public string dialogObject;
     public bool isAction;
     public int dialogIndex;
+    public bool isDialogObject;
 
     [Header("MiniGame")]
     public GameObject miniGameUI;
@@ -41,6 +42,7 @@ public class InteractionManager : MonoBehaviour
 
     private void Start()
     {
+        isDialogObject = false;
         miniGameUI.SetActive(false);
         Debug.Log(QuestManager.CheckQuest());
         questInfoUI.SetActive(true);
