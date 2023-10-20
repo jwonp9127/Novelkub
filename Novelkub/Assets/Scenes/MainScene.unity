@@ -15541,6 +15541,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 236e70cfb8ad0fc448c79a2155a5d3c2, type: 3}
+--- !u!1 &1742090003 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1283221141521145538, guid: 10016406ce0aab049a08c2fc539ff40f, type: 3}
+  m_PrefabInstance: {fileID: 4389357056037820751}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1745271455
 Mesh:
   m_ObjectHideFlags: 0
@@ -16433,6 +16438,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1657593834000994549, guid: d1b760fcd4188c844991556020f71890, type: 3}
+      propertyPath: InPotal
+      value: 
+      objectReference: {fileID: 1742090003}
+    - target: {fileID: 2077984931393579526, guid: d1b760fcd4188c844991556020f71890, type: 3}
+      propertyPath: InPotal
+      value: 
+      objectReference: {fileID: 1742090003}
     - target: {fileID: 2945545901592052095, guid: d1b760fcd4188c844991556020f71890, type: 3}
       propertyPath: player
       value: 
@@ -16441,6 +16454,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: AboutNosook
       objectReference: {fileID: 0}
+    - target: {fileID: 3641070826921250738, guid: d1b760fcd4188c844991556020f71890, type: 3}
+      propertyPath: InPotal
+      value: 
+      objectReference: {fileID: 1742090003}
+    - target: {fileID: 5439096601304985818, guid: d1b760fcd4188c844991556020f71890, type: 3}
+      propertyPath: InPotal
+      value: 
+      objectReference: {fileID: 1742090003}
     - target: {fileID: 6008032214834507457, guid: d1b760fcd4188c844991556020f71890, type: 3}
       propertyPath: m_RootOrder
       value: 11
