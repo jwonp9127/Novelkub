@@ -80,6 +80,78 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OneInvne"",
+                    ""type"": ""Button"",
+                    ""id"": ""d21db4cc-6302-4c14-af52-9af3bc03e6c3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TwoInven"",
+                    ""type"": ""Button"",
+                    ""id"": ""e166f5f9-8f8d-4000-81d6-ae2d3de0f9c9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ThreeInven"",
+                    ""type"": ""Button"",
+                    ""id"": ""9a27feff-714f-4be2-b58f-a463aa32f097"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FourInven"",
+                    ""type"": ""Button"",
+                    ""id"": ""2a012903-6c81-4db2-a1ee-c6dd0d18884b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FiveInven"",
+                    ""type"": ""Button"",
+                    ""id"": ""4b96154b-f86c-4141-aff7-a33aa294093f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SixInven"",
+                    ""type"": ""Button"",
+                    ""id"": ""4755efe2-a32a-4942-92cc-8c4bc397b96b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SevenInven"",
+                    ""type"": ""Button"",
+                    ""id"": ""260206a2-9b12-4ceb-a7a4-f85b97576690"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EightInven"",
+                    ""type"": ""Button"",
+                    ""id"": ""a8680cde-a97e-429c-9cb7-7032069733c1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -87,94 +159,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""ee35fe65-d9f4-4a42-b4e0-b90203afe378"",
                     ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interaction"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f10bfab9-dc5a-4301-affe-64d274e6b8a3"",
-                    ""path"": ""<Keyboard>/1"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interaction"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c15d2a4d-816b-4329-a957-91b673482ba4"",
-                    ""path"": ""<Keyboard>/2"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interaction"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d5c9cad4-21dd-40ad-bd43-c4afd6834219"",
-                    ""path"": ""<Keyboard>/3"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interaction"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""00930a11-f34d-4615-8d6d-d4318db3bc1a"",
-                    ""path"": ""<Keyboard>/4"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interaction"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""126d1e87-a392-4dc9-81b0-65847948911b"",
-                    ""path"": ""<Keyboard>/5"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interaction"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""01905864-c38f-45a7-a5ca-eac9b29b265b"",
-                    ""path"": ""<Keyboard>/6"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interaction"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d3bc49ca-86e4-498e-8090-27c90377c592"",
-                    ""path"": ""<Keyboard>/7"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interaction"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6f1ab6fc-328b-4c2c-abd9-66d799a06cb2"",
-                    ""path"": ""<Keyboard>/8"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -291,6 +275,94 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a8ffd900-b863-4188-b6f0-8231885c259b"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OneInvne"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b34a5e2e-45a2-4dd9-aa19-a015f72bce3e"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TwoInven"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f70ce5b9-8b0c-4da9-961a-ad2f8636f1e4"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ThreeInven"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""358d7999-7d6a-4ba4-8dbc-bad1150e6b2e"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FourInven"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d75062c7-b507-4176-8399-e2517c4d9cdd"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FiveInven"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""23c5bc3b-1c82-452d-90de-4bcd30d3f8e1"",
+                    ""path"": ""<Keyboard>/6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SixInven"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6e405ab7-46ca-4b96-b38a-ef4c689e4100"",
+                    ""path"": ""<Keyboard>/7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SevenInven"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f7730313-9472-4773-9c7b-3e13cd9a3a4d"",
+                    ""path"": ""<Keyboard>/8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EightInven"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -305,6 +377,14 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_OneInvne = m_Player.FindAction("OneInvne", throwIfNotFound: true);
+        m_Player_TwoInven = m_Player.FindAction("TwoInven", throwIfNotFound: true);
+        m_Player_ThreeInven = m_Player.FindAction("ThreeInven", throwIfNotFound: true);
+        m_Player_FourInven = m_Player.FindAction("FourInven", throwIfNotFound: true);
+        m_Player_FiveInven = m_Player.FindAction("FiveInven", throwIfNotFound: true);
+        m_Player_SixInven = m_Player.FindAction("SixInven", throwIfNotFound: true);
+        m_Player_SevenInven = m_Player.FindAction("SevenInven", throwIfNotFound: true);
+        m_Player_EightInven = m_Player.FindAction("EightInven", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -372,6 +452,14 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Run;
     private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_OneInvne;
+    private readonly InputAction m_Player_TwoInven;
+    private readonly InputAction m_Player_ThreeInven;
+    private readonly InputAction m_Player_FourInven;
+    private readonly InputAction m_Player_FiveInven;
+    private readonly InputAction m_Player_SixInven;
+    private readonly InputAction m_Player_SevenInven;
+    private readonly InputAction m_Player_EightInven;
     public struct PlayerActions
     {
         private @PlayerInputAction m_Wrapper;
@@ -382,6 +470,14 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @OneInvne => m_Wrapper.m_Player_OneInvne;
+        public InputAction @TwoInven => m_Wrapper.m_Player_TwoInven;
+        public InputAction @ThreeInven => m_Wrapper.m_Player_ThreeInven;
+        public InputAction @FourInven => m_Wrapper.m_Player_FourInven;
+        public InputAction @FiveInven => m_Wrapper.m_Player_FiveInven;
+        public InputAction @SixInven => m_Wrapper.m_Player_SixInven;
+        public InputAction @SevenInven => m_Wrapper.m_Player_SevenInven;
+        public InputAction @EightInven => m_Wrapper.m_Player_EightInven;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -409,6 +505,30 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @OneInvne.started += instance.OnOneInvne;
+            @OneInvne.performed += instance.OnOneInvne;
+            @OneInvne.canceled += instance.OnOneInvne;
+            @TwoInven.started += instance.OnTwoInven;
+            @TwoInven.performed += instance.OnTwoInven;
+            @TwoInven.canceled += instance.OnTwoInven;
+            @ThreeInven.started += instance.OnThreeInven;
+            @ThreeInven.performed += instance.OnThreeInven;
+            @ThreeInven.canceled += instance.OnThreeInven;
+            @FourInven.started += instance.OnFourInven;
+            @FourInven.performed += instance.OnFourInven;
+            @FourInven.canceled += instance.OnFourInven;
+            @FiveInven.started += instance.OnFiveInven;
+            @FiveInven.performed += instance.OnFiveInven;
+            @FiveInven.canceled += instance.OnFiveInven;
+            @SixInven.started += instance.OnSixInven;
+            @SixInven.performed += instance.OnSixInven;
+            @SixInven.canceled += instance.OnSixInven;
+            @SevenInven.started += instance.OnSevenInven;
+            @SevenInven.performed += instance.OnSevenInven;
+            @SevenInven.canceled += instance.OnSevenInven;
+            @EightInven.started += instance.OnEightInven;
+            @EightInven.performed += instance.OnEightInven;
+            @EightInven.canceled += instance.OnEightInven;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -431,6 +551,30 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @OneInvne.started -= instance.OnOneInvne;
+            @OneInvne.performed -= instance.OnOneInvne;
+            @OneInvne.canceled -= instance.OnOneInvne;
+            @TwoInven.started -= instance.OnTwoInven;
+            @TwoInven.performed -= instance.OnTwoInven;
+            @TwoInven.canceled -= instance.OnTwoInven;
+            @ThreeInven.started -= instance.OnThreeInven;
+            @ThreeInven.performed -= instance.OnThreeInven;
+            @ThreeInven.canceled -= instance.OnThreeInven;
+            @FourInven.started -= instance.OnFourInven;
+            @FourInven.performed -= instance.OnFourInven;
+            @FourInven.canceled -= instance.OnFourInven;
+            @FiveInven.started -= instance.OnFiveInven;
+            @FiveInven.performed -= instance.OnFiveInven;
+            @FiveInven.canceled -= instance.OnFiveInven;
+            @SixInven.started -= instance.OnSixInven;
+            @SixInven.performed -= instance.OnSixInven;
+            @SixInven.canceled -= instance.OnSixInven;
+            @SevenInven.started -= instance.OnSevenInven;
+            @SevenInven.performed -= instance.OnSevenInven;
+            @SevenInven.canceled -= instance.OnSevenInven;
+            @EightInven.started -= instance.OnEightInven;
+            @EightInven.performed -= instance.OnEightInven;
+            @EightInven.canceled -= instance.OnEightInven;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -456,5 +600,13 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnOneInvne(InputAction.CallbackContext context);
+        void OnTwoInven(InputAction.CallbackContext context);
+        void OnThreeInven(InputAction.CallbackContext context);
+        void OnFourInven(InputAction.CallbackContext context);
+        void OnFiveInven(InputAction.CallbackContext context);
+        void OnSixInven(InputAction.CallbackContext context);
+        void OnSevenInven(InputAction.CallbackContext context);
+        void OnEightInven(InputAction.CallbackContext context);
     }
 }
